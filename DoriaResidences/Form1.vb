@@ -11,11 +11,16 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Creo nuovo messaggio mail
+
         Mail = New MailMessage
         'Indirizzo di invio mail
         Mail.From = New MailAddress(INDIRIZZO)
-        'Indirizzo di copia conoscenza mail Ccn
-        Mail.Bcc.Add(New MailAddress(INDIRIZZO2))
+        'Controllo per Ccn su mail secondaria
+        If CheckBox1.Checked Then
+            'Indirizzo di copia conoscenza mail Ccn
+            Mail.Bcc.Add(New MailAddress(INDIRIZZO2))
+        End If
+
         Try
             Mail.To.Add(TextBox1.Text)
         Catch ex As Exception
