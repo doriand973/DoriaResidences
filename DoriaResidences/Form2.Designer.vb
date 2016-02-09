@@ -22,12 +22,14 @@ Partial Class Form2
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
         Me.RadioButton8 = New System.Windows.Forms.RadioButton()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
@@ -35,10 +37,9 @@ Partial Class Form2
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton11 = New System.Windows.Forms.RadioButton()
         Me.RadioButton9 = New System.Windows.Forms.RadioButton()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton11 = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -106,6 +107,17 @@ Partial Class Form2
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tipo Mail"
+        '
+        'RadioButton10
+        '
+        Me.RadioButton10.AutoSize = True
+        Me.RadioButton10.Location = New System.Drawing.Point(6, 164)
+        Me.RadioButton10.Name = "RadioButton10"
+        Me.RadioButton10.Size = New System.Drawing.Size(70, 17)
+        Me.RadioButton10.TabIndex = 9
+        Me.RadioButton10.TabStop = True
+        Me.RadioButton10.Text = "Conferma"
+        Me.RadioButton10.UseVisualStyleBackColor = True
         '
         'RadioButton8
         '
@@ -186,6 +198,17 @@ Partial Class Form2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Sesso"
         '
+        'RadioButton11
+        '
+        Me.RadioButton11.AutoSize = True
+        Me.RadioButton11.Location = New System.Drawing.Point(5, 96)
+        Me.RadioButton11.Name = "RadioButton11"
+        Me.RadioButton11.Size = New System.Drawing.Size(46, 17)
+        Me.RadioButton11.TabIndex = 10
+        Me.RadioButton11.TabStop = True
+        Me.RadioButton11.Text = "T.O."
+        Me.RadioButton11.UseVisualStyleBackColor = True
+        '
         'RadioButton9
         '
         Me.RadioButton9.AutoSize = True
@@ -206,28 +229,6 @@ Partial Class Form2
         Me.Button1.Text = "Avvia"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'RadioButton10
-        '
-        Me.RadioButton10.AutoSize = True
-        Me.RadioButton10.Location = New System.Drawing.Point(6, 164)
-        Me.RadioButton10.Name = "RadioButton10"
-        Me.RadioButton10.Size = New System.Drawing.Size(70, 17)
-        Me.RadioButton10.TabIndex = 9
-        Me.RadioButton10.TabStop = True
-        Me.RadioButton10.Text = "Conferma"
-        Me.RadioButton10.UseVisualStyleBackColor = True
-        '
-        'RadioButton11
-        '
-        Me.RadioButton11.AutoSize = True
-        Me.RadioButton11.Location = New System.Drawing.Point(5, 96)
-        Me.RadioButton11.Name = "RadioButton11"
-        Me.RadioButton11.Size = New System.Drawing.Size(46, 17)
-        Me.RadioButton11.TabIndex = 10
-        Me.RadioButton11.TabStop = True
-        Me.RadioButton11.Text = "T.O."
-        Me.RadioButton11.UseVisualStyleBackColor = True
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -239,6 +240,7 @@ Partial Class Form2
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form2"
         Me.Text = "Tipologia Mail"
         Me.GroupBox1.ResumeLayout(False)
