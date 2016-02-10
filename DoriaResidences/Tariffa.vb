@@ -15,14 +15,7 @@ Public Class Tariffa
         tD1 = Me.tD1
         tD2 = Me.tD2
     End Sub
-    ' Function tariffa(dfrom, dto, bD1, tD1, bD2, tD2)
-    '    dfrom = Me.dfrom
-    '    dto = Me.dto
-    '    bD1 = Me.bD1
-    '    bD2 = Me.bD2
-    '    bD2 = Me.tD1
-    '    tD2 = Me.tD2
-    ' End Function
+   
     Function getD_start() As Date
         Return Me.dfrom
     End Function
@@ -71,6 +64,7 @@ Public Class Tariffa
             Return prezzo
         Catch ex As Exception
             MsgBox("Tariffa inesistente, Image valore corretto")
+            Return -1
         End Try
 
     End Function

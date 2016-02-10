@@ -75,5 +75,7 @@ Public Class Form1
         ListBox1.Items.Add(OpenFileDialog1.FileName.ToString())
     End Sub
 
-
+    'Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    '   TextBox3.Text = Form4.Pio
+    'End Sub
 End Class

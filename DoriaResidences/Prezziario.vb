@@ -1,17 +1,23 @@
 ﻿Public Class Prezziario
 
-    Private tariffario As ArrayList
+    Private tariffario As List(Of Tariffa)
+    Private a = New Date
+    Private b = New Date
+    Private c As Integer
+    Private d As Integer
+    Private e As Integer
+    Private f As Integer
+    Private t = New Tariffa(a, b, c, d, e, f)
+    ' Public Sub New()
+    ' Me.tariffario
+    ' End Sub
 
-    Public Sub New(ByVal t As ArrayList)
-        t = Me.tariffario
-    End Sub
-
-    Function getTariffario() As ArrayList
+    Function getTariffario() As List(Of Tariffa)
         Return Me.tariffario
     End Function
 
-    Function Addtariffa(ByVal t As Tariffa())
-        Return tariffario.Add(t)
-    End Function
+    Sub Addtariffa(t)
+        tariffario.Add(t)
+    End Sub
 
 End Class
