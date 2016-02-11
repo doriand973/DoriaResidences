@@ -109,4 +109,8 @@ Public Class Form1
         TextBox3.Text = Pio
 
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Form4.Show()
+    End Sub
 End Class

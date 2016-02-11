@@ -37,6 +37,7 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -167,11 +168,22 @@ Partial Class Form1
         Me.CheckBox1.Text = "Ccn Doria"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'Button6
+        '
+        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button6.Location = New System.Drawing.Point(748, 406)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(132, 29)
+        Me.Button6.TabIndex = 13
+        Me.Button6.Text = "Preventivo"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 448)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -207,4 +219,5 @@ Partial Class Form1
     Friend WithEvents Button5 As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Button6 As Button
 End Class

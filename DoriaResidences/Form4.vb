@@ -5,6 +5,7 @@ Public Class Form4
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim PrezziDoria As New List(Of Tariffa)
         Dim Pio As String = ""
+
         '*************************************************************************
         '                         CREAZIONE PREZZIARIO 2016
         '*************************************************************************
@@ -27,5 +28,26 @@ Public Class Form4
 
         Next
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MonthCalendar1.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        MonthCalendar2.Show()
+    End Sub
+
+
+    Private Sub MonthCalendar2_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar2.DateSelected
+        TextBox2.Text = MonthCalendar2.SelectionRange.Start
+        MonthCalendar2.Hide()
+    End Sub
+
+
+
+    Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar1.DateSelected
+        TextBox1.Text = MonthCalendar1.SelectionRange.Start
+        MonthCalendar1.Hide()
     End Sub
 End Class

@@ -114,7 +114,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Prezziario.vb" />
     <Compile Include="Tariffa.vb" />
   </ItemGroup>
   <ItemGroup>
