@@ -102,9 +102,9 @@ Public Class Tariffa
                 Case 0
                     prezzo = bD1
                 Case 1
-                    prezzo = bD2
-                Case 2
                     prezzo = tD1
+                Case 2
+                    prezzo = bD2
                 Case 3
                     prezzo = tD2
             End Select
@@ -119,5 +119,32 @@ Public Class Tariffa
         Dim s As String
         s = Me.dfrom.ToString("d/MM/yyyy") & " , " & Me.dto.ToString("d/MM/yyyy") & " , " & Me.bD1.ToString & " , " & Me.tD1.ToString & " , " & Me.bD2.ToString & " , " & Me.tD2.ToString
         Return s
+    End Function
+    Function FindArr(d As Date) As Boolean
+        Dim yes As Boolean
+        If d >= dfrom And d < dto Then
+            yes = True
+        Else
+            yes = False
+        End If
+        Return yes
+    End Function
+    Function FindPart(d As Date) As Boolean
+        Dim yes As Boolean
+        If d > dfrom And d <= dto Then
+            yes = True
+        Else
+            yes = False
+        End If
+        Return yes
+    End Function
+    Function CheckWeek(n As Integer) As Boolean
+        Dim yes As Boolean
+        If n > getWeek_start() And n <= getWeek_end() Then
+            yes = True
+        Else
+            yes = False
+        End If
+        Return yes
     End Function
 End Class
