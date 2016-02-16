@@ -10,17 +10,21 @@ Public Class Form1
     Dim allegato As String = ""
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        '*************************************************************************
         'Creo nuovo messaggio mail
-
+        '*************************************************************************
         Mail = New MailMessage
-        'Indirizzo di invio mail
-        Mail.From = New MailAddress(INDIRIZZO)
-        'Controllo per Ccn su mail secondaria
-        If CheckBox1.Checked Then
-            'Indirizzo di copia conoscenza mail Ccn
-            Mail.Bcc.Add(New MailAddress(INDIRIZZO2))
-        End If
+        Mail.From = New MailAddress(INDIRIZZO) 'Indirizzo mittente mail
 
+        '*************************************************************************
+        'Controllo per Ccn su mail secondaria
+        '*************************************************************************
+        If CheckBox1.Checked Then
+            Mail.Bcc.Add(New MailAddress(INDIRIZZO2)) 'Indirizzo di copia conoscenza mail Ccn
+        End If
+        '*************************************************************************
+        'Destinatario mail
+        '*************************************************************************
         Try
             Mail.To.Add(TextBox1.Text)
         Catch ex As Exception
@@ -28,9 +32,20 @@ Public Class Form1
             Exit Sub
         End Try
         Mail.Subject = TextBox2.Text
-        Mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess Or DeliveryNotificationOptions.OnFailure
+        '*************************************************************************
+        'CONFERMA LETTURA
+        '*************************************************************************
+        Mail.Headers.Add(“Disposition-Notification-To”, INDIRIZZO)
+        '*************************************************************************
+        'CONFERMA RECAPITO
+        '*************************************************************************
+        Mail.Headers.Add(“Return-Receipt-To”, INDIRIZZO)
+        Mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure Or DeliveryNotificationOptions.OnSuccess
+
         Mail.Body = TextBox3.Text
+        '*************************************************************************
         'Creazioni path per i file da allegare alla mail
+        '*************************************************************************
         If ListBox1.Items.Count <> 0 Then
             For i = 0 To ListBox1.Items.Count - 1
                 allegato = ListBox1.Items.Item(i).ToString
@@ -45,22 +60,20 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Form2.Show()
-    End Sub
 
     '********************************************************************
-    'Allegato
+    'Apertura file manager per inserimento Allegato
     '********************************************************************
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        
+
         OpenFileDialog1.ShowDialog()
 
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+        '********************************************************************
+        ' Tasto Annulla
+        '********************************************************************
         TextBox1.Clear()
         TextBox2.Clear()
         TextBox3.Clear()
@@ -80,24 +93,34 @@ Public Class Form1
         Form4.Show()
     End Sub
 
-    Private Sub DettagliMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DettagliMailToolStripMenuItem.Click
-        Form2.Show()
-    End Sub
-
     Private Sub PreventivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreventivoToolStripMenuItem.Click
         Form4.Show()
     End Sub
 
+    Private Sub DettagliMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DettagliMailToolStripMenuItem.Click
+        Form2.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form2.Show()
+    End Sub
+
     Private Sub ItalianoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ItalianoToolStripMenuItem.Click
+        '*************************************************************************
+        'Scelta Lingua Italiano
+        '*************************************************************************
         ItalianoToolStripMenuItem.Checked = 1
         IngleseToolStripMenuItem.Checked = 0
-        ' Form2.RadioButton2.Checked = 1
+
     End Sub
 
     Private Sub IngleseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngleseToolStripMenuItem.Click
+        '*************************************************************************
+        'Scelta Lingua Inglese
+        '*************************************************************************
         IngleseToolStripMenuItem.Checked = 1
         ItalianoToolStripMenuItem.Checked = 0
-        'Form2.RadioButton1.Checked = 1
+
     End Sub
 
 End Class

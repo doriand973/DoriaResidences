@@ -51,7 +51,7 @@
                 testo = vbNewLine & "Ok, confirmed " & vbNewLine & "Thank you." & vbNewLine & vbNewLine & "Best regards"
             ElseIf RadioButton12.Checked
                 oggetto = "Doria Residences Quotation"
-                testo = vbNewLine & "As you requested, we send you a quote for the period requested by you. " & vbNewLine & preventivo & vbNewLine &
+                testo = vbNewLine & "As you requested, we send you a quote for the period requested by you. " & vbNewLine & vbNewLine & preventivo & vbNewLine &
                 vbNewLine & "We are at your disposal for any further information." & vbNewLine & vbNewLine & "Best regards"
 
             Else
@@ -96,7 +96,7 @@
                 testo = vbNewLine & "Ok, prenotazione confermata " & vbNewLine & "Grazie." & vbNewLine & vbNewLine & "Cordiali saluti "
             ElseIf RadioButton12.Checked
                 oggetto = "Preventivo Doria Residences"
-               testo = vbNewLine & "come da accordi telefonici inviamo il preventivo per il soggiorno da Lei richiesto. " & vbNewLine & preventivo & vbNewLine &
+                testo = vbNewLine & "come da accordi telefonici inviamo il preventivo per il soggiorno da Lei richiesto. " & vbNewLine & vbNewLine & preventivo & vbNewLine &
                 vbNewLine & "Rimaniamo a vostra disposizione per ulteriori informazioni." & vbNewLine & vbNewLine & "Cordiali saluti "
             Else
                 MsgBox("Errore immissione tipologia mail")
