@@ -13,7 +13,9 @@ Public Class Form4
     Dim PULIZIA As Integer = 45
     Dim totale As Integer
     Dim PrezziDoria As New List(Of Tariffa)
-    Dim preventivo As String
+    Public preventivo As String
+    Dim finale As String
+    Dim speciale As String = ""
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -61,7 +63,7 @@ Public Class Form4
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        'Calcolo prezzo soggiorno
+        'Funzioni tasto Calcola : Calcolo prezzo soggiorno
         Try
             Dim tipoApp As Integer = ComboBox1.SelectedIndex
             Dim index As Integer = 0
@@ -74,6 +76,7 @@ Public Class Form4
             Dim sTipo As String = ""
             Dim total As String = ""
             Dim sPeriod As String = ""
+
             '*************************************************************************
             'Ricerca tariffa di inizio calcolo
 
@@ -122,12 +125,12 @@ Public Class Form4
             '*************************************************************************
             'Calcolo totale soggiorno
             '*************************************************************************
-            totale = prezzo - sconto + spese + PULIZIA
+            totale = prezzo - sconto + soggiorno * spese + PULIZIA
             '*************************************************************************
             'Selezione Lingua
             '*************************************************************************
 
-            If RadioButton1.Checked Then
+            If Form1.ItalianoToolStripMenuItem.Checked Then
                 sPeriod = "Periodo Soggiorno: "
                 settimane = "N° settimane: "
                 sPrezzo = "Prezzo: "
@@ -135,8 +138,9 @@ Public Class Form4
                 sSpese = "Spese: "
                 sPul = "Pulizia Finale: "
                 sTipo = "Tipo Appartemento : "
-                total = "PREZZO TOTALE= "
-            ElseIf RadioButton2.Checked
+                total = "PREZZO TOTALE: "
+                speciale = " Sconto speciale per Lei, PREZZO FINALE: "
+            ElseIf Form1.IngleseToolStripMenuItem.Checked
                 sPeriod = "Termin: "
                 settimane = "N° of Weeks stay: "
                 sPrezzo = "Price: "
@@ -144,11 +148,15 @@ Public Class Form4
                 sSpese = "Expenses: "
                 sPul = "Final Cleaning: "
                 sTipo = "Typ.:"
-                total = "TOTAL PRICE= "
+                total = "TOTAL PRICE: "
+                speciale = " Special discount for you, FINAL PRICE: "
             End If
 
             'TextBox3.Text = TextBox3.Text & PrezziDoria.Item(index).ToString & " N° settimana: " & nDfin & vbNewLine
 
+            '*************************************************************************
+            'Creazione Stringa Preventivo
+            '*************************************************************************
             preventivo = TextBox3.Text & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & " - " & sSconto & sconto & " €" & " + " & sSpese & soggiorno * spese & " €" & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
             TextBox3.Text = preventivo
             prezzo = 0
@@ -162,6 +170,7 @@ Public Class Form4
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'funzioni tasto Annulla
         TextBox3.Text = ""
         prezzo = 0
         totale = 0
@@ -169,7 +178,9 @@ Public Class Form4
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Form1.TextBox3.Text = preventivo
+        'funzioni tasto Ok
+        'Form1.TextBox3.Text = preventivo
+        Form2.preventivo = preventivo
         Close()
     End Sub
 
@@ -184,5 +195,21 @@ Public Class Form4
         MonthCalendar1.Hide()
     End Sub
 
+
+    Protected Overrides Function ProcessDialogKey(ByVal keyData As System.Windows.Forms.Keys) As Boolean
+        'funzione per chiudere con il tasto ESC le finestre calendario
+        Select Case keyData
+            Case Keys.Escape
+                MonthCalendar1.Hide()
+                MonthCalendar2.Hide()
+            Case Keys.Enter
+                If TextBox4.Text <> "" Then
+                    finale = TextBox4.Text
+                    preventivo = preventivo & vbNewLine & speciale & finale & " €"
+                    TextBox3.Text = preventivo
+                End If
+        End Select
+        Return MyBase.ProcessDialogKey(keyData)
+    End Function
 
 End Class

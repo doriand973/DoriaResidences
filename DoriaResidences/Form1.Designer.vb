@@ -37,13 +37,20 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.StrumentiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DettagliMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreventivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LinguaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItalianoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IngleseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 24)
+        Me.Label1.Location = New System.Drawing.Point(15, 53)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(63, 13)
         Me.Label1.TabIndex = 0
@@ -52,7 +59,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 87)
+        Me.Label2.Location = New System.Drawing.Point(15, 108)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(45, 13)
         Me.Label2.TabIndex = 1
@@ -69,14 +76,14 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 54)
+        Me.TextBox1.Location = New System.Drawing.Point(18, 82)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(328, 20)
         Me.TextBox1.TabIndex = 3
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(18, 119)
+        Me.TextBox2.Location = New System.Drawing.Point(18, 138)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(452, 20)
         Me.TextBox2.TabIndex = 4
@@ -105,7 +112,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(357, 41)
+        Me.Button2.Location = New System.Drawing.Point(357, 69)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(113, 33)
         Me.Button2.TabIndex = 7
@@ -154,36 +161,76 @@ Partial Class Form1
         '
         'OpenFileDialog1
         '
-        Me.OpenFileDialog1.InitialDirectory = "G:"
+        Me.OpenFileDialog1.InitialDirectory = "G:\Documenti\000 Doria residences"
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Checked = True
         Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Location = New System.Drawing.Point(96, 24)
+        Me.CheckBox1.Location = New System.Drawing.Point(93, 49)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(73, 17)
         Me.CheckBox1.TabIndex = 12
         Me.CheckBox1.Text = "Ccn Doria"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'Button6
+        'MenuStrip1
         '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.Location = New System.Drawing.Point(748, 406)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(132, 29)
-        Me.Button6.TabIndex = 13
-        Me.Button6.Text = "Preventivo"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StrumentiToolStripMenuItem, Me.LinguaToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(906, 24)
+        Me.MenuStrip1.TabIndex = 14
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'StrumentiToolStripMenuItem
+        '
+        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DettagliMailToolStripMenuItem, Me.PreventivoToolStripMenuItem})
+        Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
+        Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.StrumentiToolStripMenuItem.Text = "Strumenti"
+        '
+        'DettagliMailToolStripMenuItem
+        '
+        Me.DettagliMailToolStripMenuItem.Name = "DettagliMailToolStripMenuItem"
+        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DettagliMailToolStripMenuItem.Text = "Dettagli Mail"
+        '
+        'PreventivoToolStripMenuItem
+        '
+        Me.PreventivoToolStripMenuItem.Name = "PreventivoToolStripMenuItem"
+        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PreventivoToolStripMenuItem.Text = "Preventivo"
+        '
+        'LinguaToolStripMenuItem
+        '
+        Me.LinguaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ItalianoToolStripMenuItem, Me.IngleseToolStripMenuItem})
+        Me.LinguaToolStripMenuItem.Name = "LinguaToolStripMenuItem"
+        Me.LinguaToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
+        Me.LinguaToolStripMenuItem.Text = "Lingua"
+        '
+        'ItalianoToolStripMenuItem
+        '
+        Me.ItalianoToolStripMenuItem.Checked = True
+        Me.ItalianoToolStripMenuItem.CheckOnClick = True
+        Me.ItalianoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.ItalianoToolStripMenuItem.Name = "ItalianoToolStripMenuItem"
+        Me.ItalianoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ItalianoToolStripMenuItem.Text = "Italiano"
+        '
+        'IngleseToolStripMenuItem
+        '
+        Me.IngleseToolStripMenuItem.CheckOnClick = True
+        Me.IngleseToolStripMenuItem.Name = "IngleseToolStripMenuItem"
+        Me.IngleseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngleseToolStripMenuItem.Text = "Inglese"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 448)
-        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -197,9 +244,12 @@ Partial Class Form1
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Doria Residences Mail"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -219,5 +269,11 @@ Partial Class Form1
     Friend WithEvents Button5 As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents Button6 As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents StrumentiToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DettagliMailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PreventivoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LinguaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ItalianoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IngleseToolStripMenuItem As ToolStripMenuItem
 End Class

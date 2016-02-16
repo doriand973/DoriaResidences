@@ -6,9 +6,12 @@
     Dim corpo As String
     Dim FIRMA As String = vbNewLine & "Andrea Doria" & vbNewLine & vbNewLine & "Doria Residences" & vbNewLine & "mail: doria.residences@gmail.com" & vbNewLine & "internet: www.doriares.it" & vbNewLine & "mobile: +393358273362"
     Dim oggetto As String
+    Public preventivo As String = ""
+    Dim finale As Integer
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If RadioButton1.Checked Then
+        If Form1.IngleseToolStripMenuItem.Checked Then
+
             '********************************************************************
             'Modelli mail in inglese
             '********************************************************************
@@ -46,11 +49,16 @@
             ElseIf RadioButton10.Checked
                 oggetto = "Doria Residences reservation confirmed"
                 testo = vbNewLine & "Ok, confirmed " & vbNewLine & "Thank you." & vbNewLine & vbNewLine & "Best regards"
+            ElseIf RadioButton12.Checked
+                oggetto = "Doria Residences Quotation"
+                testo = vbNewLine & "As you requested, we send you a quote for the period requested by you. " & vbNewLine & preventivo & vbNewLine &
+                vbNewLine & "We are at your disposal for any further information." & vbNewLine & vbNewLine & "Best regards"
+
             Else
                 MsgBox("Errore immissione tipologia mail")
                 Exit Sub
             End If
-        Else
+        ElseIf Form1.ItalianoToolStripMenuItem.Checked
             '********************************************************************
             'Modelli mail in italiano
             '********************************************************************
@@ -86,6 +94,10 @@
             ElseIf RadioButton10.Checked
                 oggetto = "Conferma prenotazone Doria Residences"
                 testo = vbNewLine & "Ok, prenotazione confermata " & vbNewLine & "Grazie." & vbNewLine & vbNewLine & "Cordiali saluti "
+            ElseIf RadioButton12.Checked
+                oggetto = "Preventivo Doria Residences"
+               testo = vbNewLine & "come da accordi telefonici inviamo il preventivo per il soggiorno da Lei richiesto. " & vbNewLine & preventivo & vbNewLine &
+                vbNewLine & "Rimaniamo a vostra disposizione per ulteriori informazioni." & vbNewLine & vbNewLine & "Cordiali saluti "
             Else
                 MsgBox("Errore immissione tipologia mail")
                 Exit Sub
@@ -99,6 +111,10 @@
 
     Private Sub RadioButton10_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton10.CheckedChanged
 
+    End Sub
+
+    Private Sub RadioButton12_Click(sender As Object, e As EventArgs) Handles RadioButton12.Click
+        Form4.Show()
     End Sub
 End Class
 
