@@ -51,6 +51,7 @@ Public Class Tariffa
             Return tD2
         End Get
     End Property
+
     Function getD_start() As Date
         Return dfrom
     End Function
@@ -82,8 +83,9 @@ Public Class Tariffa
     Function gettriloD2() As Integer
         Return tD2
     End Function
-
+    '*************************************************************************
     ' Funzione che mi restituisce il numero della settimana dell'anno dato il giorno
+    '*************************************************************************
     Private Function getWeek(d As Date) As Integer
         Return DatePart(DateInterval.WeekOfYear, d) - 1
     End Function
@@ -115,11 +117,17 @@ Public Class Tariffa
         End Try
 
     End Function
+    '*************************************************************************
+    ' Costrutto di scrittura in stringa della tariffa
+    '*************************************************************************
     Overrides Function ToString() As String
         Dim s As String
         s = Me.dfrom.ToString("d/MM/yyyy") & " , " & Me.dto.ToString("d/MM/yyyy") & " , " & Me.bD1.ToString & " , " & Me.tD1.ToString & " , " & Me.bD2.ToString & " , " & Me.tD2.ToString
         Return s
     End Function
+    '*************************************************************************
+    ' Controlla se la data di arrivo immessa fa parte della tariffa selezionata
+    '*************************************************************************
     Function FindArr(d As Date) As Boolean
         Dim yes As Boolean
         If d >= dfrom And d < dto Then
@@ -129,6 +137,9 @@ Public Class Tariffa
         End If
         Return yes
     End Function
+    '*************************************************************************
+    ' Controlla se la data di partenza immessa fa parte della tariffa selezionata
+    '*************************************************************************
     Function FindPart(d As Date) As Boolean
         Dim yes As Boolean
         If d > dfrom And d <= dto Then
@@ -138,6 +149,9 @@ Public Class Tariffa
         End If
         Return yes
     End Function
+    '*************************************************************************
+    ' Controlla se il n° della settimana rientra nel periodo selezionato dalle date inserite
+    '*************************************************************************
     Function CheckWeek(n As Integer) As Boolean
         Dim yes As Boolean
         If n > getWeek_start() And n <= getWeek_end() Then

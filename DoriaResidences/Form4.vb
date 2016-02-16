@@ -4,8 +4,8 @@ Public Class Form4
     Public lista As String = ""
     Dim din As Date  'Data di arrivo
     Dim dfin As Date 'Data di partenza
-    Dim nDfin As Integer
-    Dim nDin As Integer
+    Dim nDfin As Integer 'n° settimana del giorno di partenza
+    Dim nDin As Integer  'n° settimana del giorno di arrivo
     Dim prezzo As Integer
     Dim sconto As Integer
     Dim scontistica As Double
@@ -18,7 +18,6 @@ Public Class Form4
     Dim speciale As String = ""
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         '*************************************************************************
         '                         CREAZIONE PREZZIARIO 2016
         '*************************************************************************
@@ -33,58 +32,57 @@ Public Class Form4
         PrezziDoria.Add(New Tariffa(New Date(2016, 09, 03), New Date(2016, 09, 10), 300, 340, 355, 0))
         PrezziDoria.Add(New Tariffa(New Date(2016, 09, 10), New Date(2016, 09, 24), 245, 285, 300, 0))
         PrezziDoria.Add(New Tariffa(New Date(2016, 09, 24), New Date(2016, 10, 01), 225, 255, 270, 0))
-
+        '*************************************************************************
         ' Lista prezziario 
+        '*************************************************************************
         For i As Integer = 0 To PrezziDoria.Count - 1 Step 1
             lista = lista & PrezziDoria.Item(i).ToString & vbNewLine
         Next
-
     End Sub
 
-
     Private Sub MonthCalendar2_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar2.DateSelected
+        '*************************************************************************
         'Sub di immissione data di partenza
+        '*************************************************************************
         dfin = MonthCalendar2.SelectionRange.Start
         nDfin = DatePart(DateInterval.WeekOfYear, dfin) - 1
         TextBox2.Text = dfin.ToString("dd-MM-yyyy")
-        'TextBox2.Text = MonthCalendar2.SelectionRange.Start
         MonthCalendar2.Hide()
     End Sub
 
-
-
     Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar1.DateSelected
+        '*************************************************************************
         'Sub di immissione data di arrivo
+        '*************************************************************************
         din = MonthCalendar1.SelectionRange.Start
         nDin = DatePart(DateInterval.WeekOfYear, din) - 1
         TextBox1.Text = din.ToString("dd-MM-yyyy")
-        'TextBox1.Text = MonthCalendar1.SelectionRange.Start
         MonthCalendar1.Hide()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        '*************************************************************************
         'Funzioni tasto Calcola : Calcolo prezzo soggiorno
-        Try
-            Dim tipoApp As Integer = ComboBox1.SelectedIndex
-            Dim index As Integer = 0
-            Dim soggiorno As Integer = nDfin - nDin
-            Dim settimane As String = ""
-            Dim sPrezzo As String = ""
-            Dim sSconto As String = ""
-            Dim sSpese As String = ""
-            Dim sPul As String = ""
-            Dim sTipo As String = ""
-            Dim total As String = ""
-            Dim sPeriod As String = ""
+        '*************************************************************************
+        Dim tipoApp As Integer = ComboBox1.SelectedIndex
+        Dim index As Integer = 0
+        Dim soggiorno As Integer = nDfin - nDin
+        Dim settimane As String = ""
+        Dim sPrezzo As String = ""
+        Dim sSconto As String = ""
+        Dim sSpese As String = ""
+        Dim sPul As String = ""
+        Dim sTipo As String = ""
+        Dim total As String = ""
+        Dim sPeriod As String = ""
 
+        Try
             '*************************************************************************
             'Ricerca tariffa di inizio calcolo
-
             '*************************************************************************            
             For i As Integer = 0 To PrezziDoria.Count - 1
                 If PrezziDoria.Item(i).FindArr(din) Then
-                    'TextBox3.Text = TextBox3.Text & PrezziDoria.Item(i).ToString & " N° settimana: " & nDin & vbNewLine '& vbNewLine
-                    index = i
+                    Index = i
                     Exit For
                 End If
             Next
@@ -92,11 +90,11 @@ Public Class Form4
             'Calcolo prezzo netto senza sconto
             '*************************************************************************
             For j As Integer = nDin + 1 To nDfin
-                If PrezziDoria.Item(index).CheckWeek(j) Then
-                    prezzo += PrezziDoria.Item(index).getprezzo(tipoApp)
+                If PrezziDoria.Item(Index).CheckWeek(j) Then
+                    prezzo += PrezziDoria.Item(Index).getprezzo(tipoApp)
                 Else
-                    index += 1
-                    prezzo += PrezziDoria.Item(index).getprezzo(tipoApp)
+                    Index += 1
+                    prezzo += PrezziDoria.Item(Index).getprezzo(tipoApp)
                 End If
             Next
             '*************************************************************************
@@ -129,7 +127,6 @@ Public Class Form4
             '*************************************************************************
             'Selezione Lingua
             '*************************************************************************
-
             If Form1.ItalianoToolStripMenuItem.Checked Then
                 sPeriod = "Periodo Soggiorno: "
                 settimane = "N° settimane: "
@@ -151,9 +148,6 @@ Public Class Form4
                 total = "TOTAL PRICE: "
                 speciale = " Special discount for you, FINAL PRICE: "
             End If
-
-            'TextBox3.Text = TextBox3.Text & PrezziDoria.Item(index).ToString & " N° settimana: " & nDfin & vbNewLine
-
             '*************************************************************************
             'Creazione Stringa Preventivo
             '*************************************************************************
@@ -163,23 +157,22 @@ Public Class Form4
         Catch ex As Exception
             TextBox3.Text = ""
             MsgBox("Controlla di aver Selezionato tutti i campi")
-
         End Try
-
-
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        '*************************************************************************
         'funzioni tasto Annulla
+        '*************************************************************************
         TextBox3.Text = ""
         prezzo = 0
         totale = 0
-
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        '*************************************************************************
         'funzioni tasto Ok
-        'Form1.TextBox3.Text = preventivo
+        '*************************************************************************
         Form2.preventivo = preventivo
         Close()
     End Sub
@@ -189,15 +182,17 @@ Public Class Form4
         MonthCalendar1.BringToFront()
         MonthCalendar2.Hide()
     End Sub
+
     Private Sub TextBox2_MouseClick(sender As Object, e As MouseEventArgs) Handles TextBox2.MouseClick
         MonthCalendar2.Show()
         MonthCalendar2.BringToFront()
         MonthCalendar1.Hide()
     End Sub
 
-
     Protected Overrides Function ProcessDialogKey(ByVal keyData As System.Windows.Forms.Keys) As Boolean
-        'funzione per chiudere con il tasto ESC le finestre calendario
+        '*************************************************************************
+        'Tasto ESC per chiudere le finestre calendario e tasto ENTER per immissione prezzo finale preventivo
+        '*************************************************************************
         Select Case keyData
             Case Keys.Escape
                 MonthCalendar1.Hide()

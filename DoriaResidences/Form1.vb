@@ -60,14 +60,11 @@ Public Class Form1
 
     End Sub
 
-
-    '********************************************************************
-    'Apertura file manager per inserimento Allegato
-    '********************************************************************
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
+        '********************************************************************
+        'Apertura file manager per inserimento Allegato
+        '********************************************************************
         OpenFileDialog1.ShowDialog()
-
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -78,14 +75,19 @@ Public Class Form1
         TextBox2.Clear()
         TextBox3.Clear()
         ListBox1.Items.Clear()
-
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        '********************************************************************
+        ' Elimina allegato selezionato
+        '********************************************************************
         ListBox1.Items.Remove(ListBox1.SelectedItem)
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
+        '********************************************************************
+        ' Aggiunge PATH del file selezionato da allegare
+        '********************************************************************
         ListBox1.Items.Add(OpenFileDialog1.FileName.ToString())
     End Sub
 
