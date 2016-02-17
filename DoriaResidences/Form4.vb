@@ -6,6 +6,7 @@ Public Class Form4
     Dim dfin As Date 'Data di partenza
     Dim nDfin As Integer 'n° settimana del giorno di partenza
     Dim nDin As Integer  'n° settimana del giorno di arrivo
+    Dim tipoApp As Integer
     Dim prezzo As Integer
     Dim sconto As Integer
     Dim scontistica As Double
@@ -64,7 +65,6 @@ Public Class Form4
         '*************************************************************************
         'Funzioni tasto Calcola : Calcolo prezzo soggiorno
         '*************************************************************************
-        Dim tipoApp As Integer = ComboBox1.SelectedIndex
         Dim index As Integer = 0
         Dim soggiorno As Integer = nDfin - nDin
         Dim settimane As String = ""
@@ -75,7 +75,7 @@ Public Class Form4
         Dim sTipo As String = ""
         Dim total As String = ""
         Dim sPeriod As String = ""
-
+        tipoApp = ComboBox1.SelectedIndex
         Try
             '*************************************************************************
             'Ricerca tariffa di inizio calcolo
@@ -117,8 +117,11 @@ Public Class Form4
             Select Case tipoApp
                 Case 0
                     spese = 45
-                Case Else
+                Case 1
+                Case 2
                     spese = 55
+                Case Else
+                    Throw New System.Exception("Controlla di aver Selezionato tutti i campi")
             End Select
             '*************************************************************************
             'Calcolo totale soggiorno
@@ -136,7 +139,7 @@ Public Class Form4
                 sPul = "Pulizia Finale: "
                 sTipo = "Tipo Appartemento : "
                 total = "PREZZO TOTALE: "
-                speciale = " Sconto speciale per Lei, PREZZO FINALE: "
+                speciale = "Sconto speciale per Lei, PREZZO FINALE: "
             ElseIf Form1.IngleseToolStripMenuItem.Checked
                 sPeriod = "Termin: "
                 settimane = "N° of Weeks stay: "
@@ -146,12 +149,12 @@ Public Class Form4
                 sPul = "Final Cleaning: "
                 sTipo = "Typ.:"
                 total = "TOTAL PRICE: "
-                speciale = " Special discount for you, FINAL PRICE: "
+                speciale = "Special discount for you, FINAL PRICE: "
             End If
             '*************************************************************************
             'Creazione Stringa Preventivo
             '*************************************************************************
-            preventivo = TextBox3.Text & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & " - " & sSconto & sconto & " €" & " + " & sSpese & soggiorno * spese & " €" & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
+            preventivo = TextBox3.Text & vbNewLine & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & " - " & sSconto & sconto & " €" & " + " & sSpese & soggiorno * spese & " €" & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
             TextBox3.Text = preventivo
             prezzo = 0
         Catch ex As Exception
@@ -164,9 +167,20 @@ Public Class Form4
         '*************************************************************************
         'funzioni tasto Annulla
         '*************************************************************************
+        TextBox1.Text = ""
+        TextBox2.Text = ""
         TextBox3.Text = ""
+        TextBox4.Text = ""
+        ComboBox1.Text = ""
+        preventivo = ""
+        din = New Date(0)
+        dfin = New Date(0)
+        ComboBox1.SelectedIndex = -1
+        nDfin = 0
+        nDin = 0
         prezzo = 0
         totale = 0
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -200,7 +214,7 @@ Public Class Form4
             Case Keys.Enter
                 If TextBox4.Text <> "" Then
                     finale = TextBox4.Text
-                    preventivo = preventivo & vbNewLine & speciale & finale & " €"
+                    preventivo = preventivo & vbNewLine & speciale & finale & " €" & vbNewLine
                     TextBox3.Text = preventivo
                 End If
         End Select

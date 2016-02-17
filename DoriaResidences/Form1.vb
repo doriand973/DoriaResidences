@@ -8,10 +8,11 @@ Public Class Form1
     Dim INDIRIZZO2 As String = "info@doriares.it"
     Dim PASS As String = "011233564"
     Dim allegato As String = ""
-
+    Dim allegati As String = ""
+    Dim pathLog As String = "G:\Documenti\000 Doria residences\02 Attività\01 Prenotazioni\2016\Mail" ' path dove salvare i file log delle mail inviate
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         '*************************************************************************
-        'Creo nuovo messaggio mail
+        'Creo nuovo messaggio mail e INVIO MAIL
         '*************************************************************************
         Mail = New MailMessage
         Mail.From = New MailAddress(INDIRIZZO) 'Indirizzo mittente mail
@@ -49,6 +50,7 @@ Public Class Form1
         If ListBox1.Items.Count <> 0 Then
             For i = 0 To ListBox1.Items.Count - 1
                 allegato = ListBox1.Items.Item(i).ToString
+                allegati += allegati & vbNewLine & allegato
                 Mail.Attachments.Add(New Attachment(allegato))
             Next
         End If
@@ -57,6 +59,11 @@ Public Class Form1
         Smtp.Credentials = New Net.NetworkCredential(INDIRIZZO, PASS)
         Smtp.Send(Mail)
         MsgBox("Messaggio Inviato con successo", MsgBoxStyle.Information, "Avviso")
+
+        '********************************************************************
+        'Scrittura File Log email inviata
+        '********************************************************************
+        ScriviLogData(TextBox1.Text & vbNewLine & TextBox3.Text & vbNewLine & allegati)
 
     End Sub
 
@@ -124,5 +131,22 @@ Public Class Form1
         ItalianoToolStripMenuItem.Checked = 0
 
     End Sub
-
+    Private Sub ScriviLogData(ByVal Namelog As String)
+        '*************************************************************************
+        'Sub per creazione di file Log 
+        '*************************************************************************
+        Dim data As Date = Date.Now()
+        Dim oggi As String = data.ToString("dd-MM-yyyy H-mm-ss")
+        'Controllo esistenza file Log .log
+        If IO.File.Exists(pathLog & "\" & TextBox2.Text & " " & oggi & ".log") = False Then
+            'Creo il file Log se non esiste
+            Dim fs As IO.FileStream = IO.File.Create(pathLog & "\" & TextBox2.Text & " " & oggi & ".log")
+            fs.Close() 'chiudo il file log
+        End If
+        'Apro il file per poi aggiungere i dati alla fine 
+        Dim tw As IO.TextWriter = IO.File.AppendText(pathLog & "\" & TextBox2.Text & " " & oggi & ".log")
+        'Scrivi la stringa di Log
+        tw.WriteLine(Namelog)
+        tw.Close()
+    End Sub
 End Class
