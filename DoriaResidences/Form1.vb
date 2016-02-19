@@ -2,14 +2,90 @@
 
 Public Class Form1
 
-    Dim Mail As New MailMessage
-    Dim Smtp As New SmtpClient("smtp.gmail.com")
-    Dim INDIRIZZO As String = "doria.residences@gmail.com"
-    Dim INDIRIZZO2 As String = "info@doriares.it"
-    Dim PASS As String = "011233564"
+    Dim smtpString As String = IniRead(“G:\doriares.ini”, “MAIL”, “smtp”)
+    Dim INDIRIZZO As String = IniRead(“G:\doriares.ini”, “MAIL”, “mailmitt”)
+    Dim INDIRIZZO2 As String = IniRead(“G:\doriares.ini”, “MAIL”, “mailccn”)
+    Dim PASS As String = IniRead(“G:\doriares.ini”, “MAIL”, “psw”)
+    'Dim Smtp As New SmtpClient("smtp.gmail.com")
+    'Dim INDIRIZZO As String = "doria.residences@gmail.com"
+    'Dim INDIRIZZO2 As String = "info@doriares.it"
+    'Dim PASS As String = "011233564"
     Dim allegato As String = ""
     Dim allegati As String = ""
-    Dim pathLog As String = "G:\Documenti\000 Doria residences\02 Attività\01 Prenotazioni\2016\Mail" ' path dove salvare i file log delle mail inviate
+    'Dim pathLog As String = "G:\Documenti\000 Doria residences\02 Attività\01 Prenotazioni\2016\Mail" ' path dove salvare i file log delle mail inviate
+    Dim pathLog As String = IniRead(“\doriares.ini”, “PathLog”, “pathlog”)
+    Dim Mail As New MailMessage
+    Dim Smtp As New SmtpClient(smtpString)
+    '*************************************************************************
+    'Dichiarazione File INI
+    '*************************************************************************
+    Private Declare Auto Function GetPrivateProfileString Lib “kernel32.dll” (ByVal lpApplicationName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
+    Private Declare Auto Function WritePrivateProfileString Lib “kernel32.dll” (ByVal lpApplicationName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
+
+    Friend Function IniRead(ByVal Filename As String, ByVal Section As String, ByVal Key As String, Optional ByVal lpDefault As String = “”, Optional ByVal bRaiseError As Boolean = False) As String
+        '*************************************************************************
+        'Lettura File INI
+        '*************************************************************************
+        Dim RetVal As String = New String(” “, 255)
+
+        Dim LenResult As Integer
+
+        Dim ErrString As String
+
+        LenResult = GetPrivateProfileString(Section, Key, lpDefault, RetVal, RetVal.Length, Filename)
+
+        If LenResult = 0 AndAlso bRaiseError Then
+
+            If Not (System.IO.File.Exists(Filename)) Then
+
+                ErrString = “Impossibile aprire il file INI” & Filename
+
+            Else
+
+                ErrString = “La sezione o la chiave sono errate oppure l’accesso al file non è consentito”
+
+            End If
+
+            Throw New Exception(ErrString)
+
+        End If
+
+        Return RetVal.Substring(0, LenResult)
+
+    End Function
+
+    Friend Function IniWrite(ByVal Filename As String, ByVal Section As String, ByVal Key As String, ByVal Value As String, Optional ByVal bRaiseError As Boolean = False) As Boolean
+        '*************************************************************************
+        'Scrittura File INI
+        '*************************************************************************
+        Dim LenResult As Integer
+
+        Dim ErrString As String
+
+        LenResult = WritePrivateProfileString(Section, Key, Value, Filename)
+
+        If LenResult = 0 And bRaiseError Then
+
+            If Not (System.IO.File.Exists(Filename)) Then
+
+                ErrString = “Impossibile aprire il file INI” & Filename
+
+            Else
+
+                ErrString = “Accesso al file non consentito”
+
+            End If
+
+            Throw New Exception(ErrString)
+
+        End If
+
+        Return IIf(LenResult = 0, False, True)
+
+        End
+
+    End Function
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         '*************************************************************************
         'Creo nuovo messaggio mail e INVIO MAIL
@@ -148,5 +224,24 @@ Public Class Form1
         'Scrivi la stringa di Log
         tw.WriteLine(Namelog)
         tw.Close()
+    End Sub
+
+    Private Sub PathFileLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PathFileLogToolStripMenuItem.Click
+
+        Dim scritturaOk As Boolean
+        FolderBrowserDialog1.ShowDialog()
+
+        scritturaOk = IniWrite(“G:\doriares.ini”, “PATHLOG”, “path”, FolderBrowserDialog1.SelectedPath.ToString)
+        If scritturaOk Then
+            MsgBox("Scrittura file Ini avvenuta correttamente")
+        Else
+            MsgBox("Scrittura file Ini non avvenuta")
+
+        End If
+        TextBox4.Text = IniRead(“G:\doriares.ini”, “PATHLOG”, “path”)
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TextBox3.Text = pathLog & vbNewLine & smtpString & vbNewLine & INDIRIZZO & vbNewLine & INDIRIZZO2 & vbNewLine & PASS
     End Sub
 End Class

@@ -44,6 +44,10 @@ Partial Class Form1
         Me.LinguaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ItalianoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngleseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImpostazioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PathFileLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -177,7 +181,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StrumentiToolStripMenuItem, Me.LinguaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StrumentiToolStripMenuItem, Me.LinguaToolStripMenuItem, Me.ImpostazioniToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(906, 24)
@@ -194,13 +198,13 @@ Partial Class Form1
         'DettagliMailToolStripMenuItem
         '
         Me.DettagliMailToolStripMenuItem.Name = "DettagliMailToolStripMenuItem"
-        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.DettagliMailToolStripMenuItem.Text = "Dettagli Mail"
         '
         'PreventivoToolStripMenuItem
         '
         Me.PreventivoToolStripMenuItem.Name = "PreventivoToolStripMenuItem"
-        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.PreventivoToolStripMenuItem.Text = "Preventivo"
         '
         'LinguaToolStripMenuItem
@@ -216,21 +220,42 @@ Partial Class Form1
         Me.ItalianoToolStripMenuItem.CheckOnClick = True
         Me.ItalianoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ItalianoToolStripMenuItem.Name = "ItalianoToolStripMenuItem"
-        Me.ItalianoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ItalianoToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
         Me.ItalianoToolStripMenuItem.Text = "Italiano"
         '
         'IngleseToolStripMenuItem
         '
         Me.IngleseToolStripMenuItem.CheckOnClick = True
         Me.IngleseToolStripMenuItem.Name = "IngleseToolStripMenuItem"
-        Me.IngleseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngleseToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
         Me.IngleseToolStripMenuItem.Text = "Inglese"
+        '
+        'ImpostazioniToolStripMenuItem
+        '
+        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem})
+        Me.ImpostazioniToolStripMenuItem.Name = "ImpostazioniToolStripMenuItem"
+        Me.ImpostazioniToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
+        Me.ImpostazioniToolStripMenuItem.Text = "Impostazioni"
+        '
+        'PathFileLogToolStripMenuItem
+        '
+        Me.PathFileLogToolStripMenuItem.Name = "PathFileLogToolStripMenuItem"
+        Me.PathFileLogToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PathFileLogToolStripMenuItem.Text = "Path file Log"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(531, 161)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(284, 20)
+        Me.TextBox4.TabIndex = 15
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 448)
+        Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -276,4 +301,8 @@ Partial Class Form1
     Friend WithEvents LinguaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ItalianoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IngleseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImpostazioniToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PathFileLogToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents TextBox4 As TextBox
 End Class
