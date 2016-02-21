@@ -186,7 +186,7 @@ Partial Class Form4
         Me.Controls.Add(Me.MonthCalendar1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Text = "Preventivo"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -47,7 +47,7 @@ Partial Class Form1
         Me.ImpostazioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PathFileLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.DatiMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -232,7 +232,7 @@ Partial Class Form1
         '
         'ImpostazioniToolStripMenuItem
         '
-        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem})
+        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem, Me.DatiMailToolStripMenuItem})
         Me.ImpostazioniToolStripMenuItem.Name = "ImpostazioniToolStripMenuItem"
         Me.ImpostazioniToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
         Me.ImpostazioniToolStripMenuItem.Text = "Impostazioni"
@@ -240,22 +240,20 @@ Partial Class Form1
         'PathFileLogToolStripMenuItem
         '
         Me.PathFileLogToolStripMenuItem.Name = "PathFileLogToolStripMenuItem"
-        Me.PathFileLogToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PathFileLogToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.PathFileLogToolStripMenuItem.Text = "Path file Log"
         '
-        'TextBox4
+        'DatiMailToolStripMenuItem
         '
-        Me.TextBox4.Location = New System.Drawing.Point(531, 161)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(284, 20)
-        Me.TextBox4.TabIndex = 15
+        Me.DatiMailToolStripMenuItem.Name = "DatiMailToolStripMenuItem"
+        Me.DatiMailToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.DatiMailToolStripMenuItem.Text = "Dati Account Mail"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 448)
-        Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -304,5 +302,5 @@ Partial Class Form1
     Friend WithEvents ImpostazioniToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PathFileLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents DatiMailToolStripMenuItem As ToolStripMenuItem
 End Class

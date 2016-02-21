@@ -1,21 +1,21 @@
 ﻿Imports System.Net.Mail
 
 Public Class Form1
-
-    Dim smtpString As String = IniRead(“G:\doriares.ini”, “MAIL”, “smtp”)
-    Dim INDIRIZZO As String = IniRead(“G:\doriares.ini”, “MAIL”, “mailmitt”)
-    Dim INDIRIZZO2 As String = IniRead(“G:\doriares.ini”, “MAIL”, “mailccn”)
-    Dim PASS As String = IniRead(“G:\doriares.ini”, “MAIL”, “psw”)
+    Public PATHINI As String = “G:\doriares.ini” ' path file INI
+    Dim smtpString As String = IniRead(PATHINI, “MAIL”, “smtp”)
+    Dim INDIRIZZO As String = IniRead(PATHINI, “MAIL”, “mailmitt”)
+    Dim INDIRIZZO2 As String = IniRead(PATHINI, “MAIL”, “mailccn”)
+    Dim PASS As String = IniRead(PATHINI, “MAIL”, “psw”)
+    Dim allegato As String = ""
+    Dim allegati As String = ""
+    Dim pathLog As String = IniRead(PATHINI, “PathLog”, “pathlog”) ' path dove salvare i file log delle mail inviate
+    Dim Mail As New MailMessage
+    Dim Smtp As New SmtpClient(smtpString)
     'Dim Smtp As New SmtpClient("smtp.gmail.com")
     'Dim INDIRIZZO As String = "doria.residences@gmail.com"
     'Dim INDIRIZZO2 As String = "info@doriares.it"
     'Dim PASS As String = "011233564"
-    Dim allegato As String = ""
-    Dim allegati As String = ""
     'Dim pathLog As String = "G:\Documenti\000 Doria residences\02 Attività\01 Prenotazioni\2016\Mail" ' path dove salvare i file log delle mail inviate
-    Dim pathLog As String = IniRead(“\doriares.ini”, “PathLog”, “pathlog”)
-    Dim Mail As New MailMessage
-    Dim Smtp As New SmtpClient(smtpString)
     '*************************************************************************
     'Dichiarazione File INI
     '*************************************************************************
@@ -175,18 +175,30 @@ Public Class Form1
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs)
+        '********************************************************************
+        ' Apre scheda PREVENTIVO
+        '********************************************************************
         Form4.Show()
     End Sub
 
     Private Sub PreventivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreventivoToolStripMenuItem.Click
+        '********************************************************************
+        ' Apre scheda PREVENTIVO
+        '********************************************************************
         Form4.Show()
     End Sub
 
     Private Sub DettagliMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DettagliMailToolStripMenuItem.Click
+        '********************************************************************
+        ' Apre scheda TIPO MAIL
+        '********************************************************************
         Form2.Show()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        '********************************************************************
+        ' Apre scheda TIPO MAIL
+        '********************************************************************
         Form2.Show()
     End Sub
 
@@ -227,21 +239,35 @@ Public Class Form1
     End Sub
 
     Private Sub PathFileLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PathFileLogToolStripMenuItem.Click
-
+        '********************************************************************
+        ' Scrittura file INI per il campo PATHLOG
+        '********************************************************************
         Dim scritturaOk As Boolean
-        FolderBrowserDialog1.ShowDialog()
+        FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyComputer
 
-        scritturaOk = IniWrite(“G:\doriares.ini”, “PATHLOG”, “path”, FolderBrowserDialog1.SelectedPath.ToString)
-        If scritturaOk Then
-            MsgBox("Scrittura file Ini avvenuta correttamente")
-        Else
-            MsgBox("Scrittura file Ini non avvenuta")
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
 
+            scritturaOk = IniWrite(PATHINI, “PATHLOG”, “path”, FolderBrowserDialog1.SelectedPath.ToString)
+            If scritturaOk Then
+                MsgBox("Scrittura file Ini avvenuta correttamente")
+            Else
+                MsgBox("Scrittura file Ini non avvenuta")
+
+            End If
         End If
-        TextBox4.Text = IniRead(“G:\doriares.ini”, “PATHLOG”, “path”)
+
+        'TextBox4.Text = IniRead(“G:\doriares.ini”, “PATHLOG”, “path”)
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TextBox3.Text = pathLog & vbNewLine & smtpString & vbNewLine & INDIRIZZO & vbNewLine & INDIRIZZO2 & vbNewLine & PASS
+        'TextBox3.Text = PATHINI.Remove(PATHINI.LastIndexOf("\") + 1, PATHINI.Length - PATHINI.LastIndexOf("\"))
+        'TextBox3.Text = PATHINI.Remove(PATHINI.LastIndexOf("\") + 1, PATHINI.Length - PATHINI.LastIndexOf("\") - 1)
     End Sub
+
+    Private Sub DatiMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatiMailToolStripMenuItem.Click
+        Form3.Show()
+    End Sub
+
+
 End Class
