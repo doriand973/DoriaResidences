@@ -1,5 +1,5 @@
 ﻿Imports System.Net.Mail
-
+Imports System.IO
 Public Class Form1
     Public PATHINI As String = “G:\doriares.ini” ' path file INI
     Dim smtpString As String = IniRead(PATHINI, “MAIL”, “smtp”)
@@ -8,13 +8,9 @@ Public Class Form1
     Dim PASS As String = IniRead(PATHINI, “MAIL”, “psw”)
     Dim allegato As String = ""
     Dim allegati As String = ""
-    Dim pathLog As String = IniRead(PATHINI, “PathLog”, “pathlog”) ' path dove salvare i file log delle mail inviate
+
     Dim Mail As New MailMessage
     Dim Smtp As New SmtpClient(smtpString)
-    'Dim Smtp As New SmtpClient("smtp.gmail.com")
-    'Dim INDIRIZZO As String = "doria.residences@gmail.com"
-    'Dim INDIRIZZO2 As String = "info@doriares.it"
-    'Dim PASS As String = "011233564"
     'Dim pathLog As String = "G:\Documenti\000 Doria residences\02 Attività\01 Prenotazioni\2016\Mail" ' path dove salvare i file log delle mail inviate
     '*************************************************************************
     'Dichiarazione File INI
@@ -36,7 +32,7 @@ Public Class Form1
 
         If LenResult = 0 AndAlso bRaiseError Then
 
-            If Not (System.IO.File.Exists(Filename)) Then
+            If Not (File.Exists(Filename)) Then
 
                 ErrString = “Impossibile aprire il file INI” & Filename
 
@@ -66,7 +62,7 @@ Public Class Form1
 
         If LenResult = 0 And bRaiseError Then
 
-            If Not (System.IO.File.Exists(Filename)) Then
+            If Not (File.Exists(Filename)) Then
 
                 ErrString = “Impossibile aprire il file INI” & Filename
 
@@ -139,8 +135,12 @@ Public Class Form1
         '********************************************************************
         'Scrittura File Log email inviata
         '********************************************************************
-        ScriviLogData(TextBox1.Text & vbNewLine & TextBox3.Text & vbNewLine & allegati)
-
+        Dim logCont As String = TextBox1.Text & vbNewLine & TextBox3.Text & vbNewLine & allegati
+        Try
+            ScriviLogData(logCont)
+        Catch ex As Exception
+            MsgBox("File log non scritto correttamente")
+        End Try
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -225,14 +225,16 @@ Public Class Form1
         '*************************************************************************
         Dim data As Date = Date.Now()
         Dim oggi As String = data.ToString("dd-MM-yyyy H-mm-ss")
+        Dim pathLog As String = IniRead(PATHINI, “PATHLOG”, “path”) ' path dove salvare i file log delle mail inviate
+        Dim nomeFile As String = pathLog & "\" & TextBox2.Text & "-" & oggi & ".log"
         'Controllo esistenza file Log .log
-        If IO.File.Exists(pathLog & "\" & TextBox2.Text & " " & oggi & ".log") = False Then
+        If File.Exists(nomeFile) = False Then
             'Creo il file Log se non esiste
-            Dim fs As IO.FileStream = IO.File.Create(pathLog & "\" & TextBox2.Text & " " & oggi & ".log")
+            Dim fs As FileStream = File.Create(nomeFile)
             fs.Close() 'chiudo il file log
         End If
         'Apro il file per poi aggiungere i dati alla fine 
-        Dim tw As IO.TextWriter = IO.File.AppendText(pathLog & "\" & TextBox2.Text & " " & oggi & ".log")
+        Dim tw As TextWriter = File.AppendText(nomeFile)
         'Scrivi la stringa di Log
         tw.WriteLine(Namelog)
         tw.Close()
