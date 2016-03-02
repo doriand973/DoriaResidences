@@ -118,6 +118,7 @@ Public Class Form4
                 Case 0
                     spese = 45
                 Case 1
+                    spese = 55
                 Case 2
                     spese = 55
                 Case Else

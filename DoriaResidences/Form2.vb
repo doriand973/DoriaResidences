@@ -71,7 +71,7 @@
                 'Modello INVIO PREVENTIVO in inglese
                 '********************************************************************
                 oggetto = "Doria Residences Quotation"
-                testo = vbNewLine & "As you requested, we send you a quote for the period requested by you. " & vbNewLine & preventivo &
+                testo = vbNewLine & "As you requested, we send you a quotation for the period requested by you. " & vbNewLine & preventivo &
                 vbNewLine & "We are at your disposal for any further information." & vbNewLine & vbNewLine & "Best regards"
             Else
                 MsgBox("Errore immissione tipologia mail")
