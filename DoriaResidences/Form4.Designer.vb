@@ -37,6 +37,7 @@ Partial Class Form4
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'MonthCalendar1
@@ -165,11 +166,22 @@ Partial Class Form4
         Me.Label4.TabIndex = 18
         Me.Label4.Text = "Prezzo Finale"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(646, 102)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(59, 17)
+        Me.CheckBox1.TabIndex = 19
+        Me.CheckBox1.Text = "Animali"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(770, 391)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.Label3)
@@ -206,4 +218,5 @@ Partial Class Form4
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

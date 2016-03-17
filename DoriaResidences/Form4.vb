@@ -11,7 +11,9 @@ Public Class Form4
     Dim sconto As Integer
     Dim scontistica As Double
     Dim spese As Integer
+    Dim speseAnimale As Integer
     Dim PULIZIA As Integer = 45
+    Dim ANIMALI As Integer = 35
     Dim totale As Integer
     Dim PrezziDoria As New List(Of Tariffa)
     Public preventivo As String
@@ -72,6 +74,8 @@ Public Class Form4
         Dim sSconto As String = ""
         Dim sSpese As String = ""
         Dim sPul As String = ""
+        Dim sAnimal As String = ""
+        Dim textAnimal As String = ""
         Dim sTipo As String = ""
         Dim total As String = ""
         Dim sPeriod As String = ""
@@ -125,9 +129,17 @@ Public Class Form4
                     Throw New System.Exception("Controlla di aver Selezionato tutti i campi")
             End Select
             '*************************************************************************
+            'Calcolo spese Animale per soggiorno
+            '*************************************************************************
+            If CheckBox1.Checked Then
+                speseAnimale = soggiorno * ANIMALI
+            Else
+                speseAnimale = 0
+            End If
+            '*************************************************************************
             'Calcolo totale soggiorno
             '*************************************************************************
-            totale = prezzo - sconto + soggiorno * spese + PULIZIA
+            totale = prezzo - sconto + soggiorno * spese + speseAnimale + PULIZIA
             '*************************************************************************
             'Selezione Lingua
             '*************************************************************************
@@ -137,6 +149,7 @@ Public Class Form4
                 sPrezzo = "Prezzo: "
                 sSconto = "Sconto: "
                 sSpese = "Spese: "
+                sAnimal = "Spese per animale domestico:"
                 sPul = "Pulizia Finale: "
                 sTipo = "Tipo Appartemento : "
                 total = "PREZZO TOTALE: "
@@ -147,15 +160,25 @@ Public Class Form4
                 sPrezzo = "Price: "
                 sSconto = "Discount: "
                 sSpese = "Expenses: "
+                sAnimal = "Expenses for pet:"
                 sPul = "Final Cleaning: "
                 sTipo = "Typ.:"
                 total = "TOTAL PRICE: "
                 speciale = "Special discount for you, FINAL PRICE: "
             End If
             '*************************************************************************
+            'Creazione Stringa Animali
+            '*************************************************************************
+            If CheckBox1.Checked Then
+                textAnimal = " + " & sAnimal & soggiorno * ANIMALI & " €"
+
+            Else
+                textAnimal = ""
+            End If
+            '*************************************************************************
             'Creazione Stringa Preventivo
             '*************************************************************************
-            preventivo = TextBox3.Text & vbNewLine & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & " - " & sSconto & sconto & " €" & " + " & sSpese & soggiorno * spese & " €" & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
+            preventivo = TextBox3.Text & vbNewLine & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & " - " & sSconto & sconto & " €" & " + " & sSpese & soggiorno * spese & " €" & textAnimal & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
             TextBox3.Text = preventivo
             prezzo = 0
         Catch ex As Exception
@@ -173,6 +196,7 @@ Public Class Form4
         TextBox3.Text = ""
         TextBox4.Text = ""
         ComboBox1.Text = ""
+        CheckBox1.Checked = False
         preventivo = ""
         din = New Date(0)
         dfin = New Date(0)
@@ -181,6 +205,8 @@ Public Class Form4
         nDin = 0
         prezzo = 0
         totale = 0
+        speseAnimale = 0
+
 
     End Sub
 
