@@ -6,6 +6,8 @@ Public Class Form1
     Dim INDIRIZZO As String = IniRead(PATHINI, “MAIL”, “mailmitt”)
     Dim INDIRIZZO2 As String = IniRead(PATHINI, “MAIL”, “mailccn”)
     Dim PASS As String = IniRead(PATHINI, “MAIL”, “psw”)
+    Dim allegato1 As String
+    Dim allegato2 As String
     Dim allegato As String = ""
     Dim allegati As String = ""
 
@@ -158,6 +160,7 @@ Public Class Form1
         TextBox2.Clear()
         TextBox3.Clear()
         ListBox1.Items.Clear()
+        CheckBox2.Checked = False
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -269,6 +272,22 @@ Public Class Form1
 
     Private Sub DatiMailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatiMailToolStripMenuItem.Click
         Form3.Show()
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked Then
+            If ItalianoToolStripMenuItem.Checked Then
+                allegato1 = IniRead(PATHINI, “ALLEGATI”, “allega1”)
+                allegato2 = IniRead(PATHINI, “ALLEGATI”, “allega2”)
+
+            Else
+                allegato1 = IniRead(PATHINI, “ALLEGATI”, “allega3”)
+                allegato2 = IniRead(PATHINI, “ALLEGATI”, “allega4”)
+
+            End If
+            ListBox1.Items.Add(allegato1)
+            ListBox1.Items.Add(allegato2)
+        End If
     End Sub
 
 

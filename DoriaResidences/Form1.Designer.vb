@@ -46,8 +46,9 @@ Partial Class Form1
         Me.IngleseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpostazioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PathFileLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.DatiMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -249,11 +250,23 @@ Partial Class Form1
         Me.DatiMailToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.DatiMailToolStripMenuItem.Text = "Dati Account Mail"
         '
+        'CheckBox2
+        '
+        Me.CheckBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(671, 147)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(161, 17)
+        Me.CheckBox2.TabIndex = 15
+        Me.CheckBox2.Text = "Allegati per informazioni STD"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 448)
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -303,4 +316,5 @@ Partial Class Form1
     Friend WithEvents PathFileLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents DatiMailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CheckBox2 As CheckBox
 End Class
