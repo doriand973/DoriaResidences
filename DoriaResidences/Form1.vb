@@ -143,6 +143,10 @@ Public Class Form1
         Catch ex As Exception
             MsgBox("File log non scritto correttamente")
         End Try
+        TextBox1.Clear()
+        TextBox2.Clear()
+        TextBox3.Clear()
+        ListBox1.Items.Clear()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
