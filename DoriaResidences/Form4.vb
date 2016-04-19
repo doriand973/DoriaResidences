@@ -12,8 +12,13 @@ Public Class Form4
     Dim scontistica As Double
     Dim spese As Integer
     Dim speseAnimale As Integer
-    Dim PULIZIA As Integer = 45
-    Dim ANIMALI As Integer = 35
+    Dim speseExtra As Integer
+    Dim EXTRA As Integer = Form1.IniRead(Form1.PATHINI, “COSTI”, “extra”)
+    Dim PULIZIA As Integer = Form1.IniRead(Form1.PATHINI, “COSTI”, “pulizia”)
+    Dim ANIMALI As Integer = Form1.IniRead(Form1.PATHINI, “COSTI”, “animali”)
+    Dim SPESEB As Integer = Form1.IniRead(Form1.PATHINI, “COSTI”, “spese1”)
+    Dim SPESET1 As Integer = Form1.IniRead(Form1.PATHINI, “COSTI”, “spese2”)
+    Dim SPESET2 As Integer = Form1.IniRead(Form1.PATHINI, “COSTI”, “spese3”)
     Dim totale As Integer
     Dim PrezziDoria As New List(Of Tariffa)
     Public preventivo As String
@@ -75,7 +80,10 @@ Public Class Form4
         Dim sSpese As String = ""
         Dim sPul As String = ""
         Dim sAnimal As String = ""
+        Dim sExtra As String = ""
         Dim textAnimal As String = ""
+        Dim textExtra As String = ""
+        Dim textSconto As String = ""
         Dim sTipo As String = ""
         Dim total As String = ""
         Dim sPeriod As String = ""
@@ -120,11 +128,11 @@ Public Class Form4
             '*************************************************************************
             Select Case tipoApp
                 Case 0
-                    spese = 45
+                    spese = SPESEB
                 Case 1
-                    spese = 55
+                    spese = SPESET1
                 Case 2
-                    spese = 55
+                    spese = SPESET2
                 Case Else
                     Throw New System.Exception("Controlla di aver Selezionato tutti i campi")
             End Select
@@ -137,9 +145,17 @@ Public Class Form4
                 speseAnimale = 0
             End If
             '*************************************************************************
+            'Calcolo spese Extra per soggiorno
+            '*************************************************************************
+            If CheckBox2.Checked Then
+                speseExtra = soggiorno * EXTRA
+            Else
+                speseExtra = 0
+            End If
+            '*************************************************************************
             'Calcolo totale soggiorno
             '*************************************************************************
-            totale = prezzo - sconto + soggiorno * spese + speseAnimale + PULIZIA
+            totale = prezzo - sconto + soggiorno * spese + speseAnimale + speseExtra + PULIZIA
             '*************************************************************************
             'Selezione Lingua
             '*************************************************************************
@@ -150,6 +166,7 @@ Public Class Form4
                 sSconto = "Sconto: "
                 sSpese = "Spese: "
                 sAnimal = "Spese per animale domestico:"
+                sExtra = "Extra: "
                 sPul = "Pulizia Finale: "
                 sTipo = "Tipo Appartemento : "
                 total = "PREZZO TOTALE: "
@@ -161,6 +178,7 @@ Public Class Form4
                 sSconto = "Discount: "
                 sSpese = "Expenses: "
                 sAnimal = "Expenses for pet:"
+                sExtra = "Extra: "
                 sPul = "Final Cleaning: "
                 sTipo = "Typ.:"
                 total = "TOTAL PRICE: "
@@ -176,9 +194,27 @@ Public Class Form4
                 textAnimal = ""
             End If
             '*************************************************************************
+            'Creazione Stringa Extra
+            '*************************************************************************
+            If CheckBox2.Checked Then
+                textExtra = " + " & sExtra & soggiorno * EXTRA & " €"
+
+            Else
+                textExtra = ""
+            End If
+            '*************************************************************************
+            'Creazione Stringa Sconto
+            '*************************************************************************
+            If sconto = 0 Then
+                textSconto = ""
+
+            Else
+                textSconto = " - " & sSconto & sconto & " €"
+            End If
+            '*************************************************************************
             'Creazione Stringa Preventivo
             '*************************************************************************
-            preventivo = TextBox3.Text & vbNewLine & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & " - " & sSconto & sconto & " €" & " + " & sSpese & soggiorno * spese & " €" & textAnimal & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
+            preventivo = TextBox3.Text & vbNewLine & sPeriod & din.ToString("dd-MM") & " - " & dfin.ToString("dd-MM") & vbNewLine & settimane & soggiorno & vbNewLine & sTipo & ComboBox1.SelectedItem.ToString & vbNewLine & sPrezzo & prezzo & " €" & textSconto & " + " & sSpese & soggiorno * spese & " €" & textAnimal & textExtra & " + " & sPul & PULIZIA & " €" & vbNewLine & total & totale & " €" & vbNewLine
             TextBox3.Text = preventivo
             prezzo = 0
         Catch ex As Exception
@@ -197,6 +233,7 @@ Public Class Form4
         TextBox4.Text = ""
         ComboBox1.Text = ""
         CheckBox1.Checked = False
+        CheckBox2.Checked = False
         preventivo = ""
         din = New Date(0)
         dfin = New Date(0)
@@ -206,7 +243,7 @@ Public Class Form4
         prezzo = 0
         totale = 0
         speseAnimale = 0
-
+        speseExtra = 0
 
     End Sub
 

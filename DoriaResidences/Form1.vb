@@ -147,6 +147,7 @@ Public Class Form1
         TextBox2.Clear()
         TextBox3.Clear()
         ListBox1.Items.Clear()
+        CheckBox2.Checked = False
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
