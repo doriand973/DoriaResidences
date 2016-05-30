@@ -40,6 +40,7 @@ Partial Class Form1
         Me.StrumentiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DettagliMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreventivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BookingcomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LinguaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ItalianoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngleseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,7 +49,6 @@ Partial Class Form1
         Me.DatiMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.BookingcomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -117,6 +117,7 @@ Partial Class Form1
         '
         'ListBox1
         '
+        Me.ListBox1.AllowDrop = True
         Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox1.FormattingEnabled = True
@@ -190,14 +191,20 @@ Partial Class Form1
         'DettagliMailToolStripMenuItem
         '
         Me.DettagliMailToolStripMenuItem.Name = "DettagliMailToolStripMenuItem"
-        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.DettagliMailToolStripMenuItem.Text = "Dettagli Mail"
         '
         'PreventivoToolStripMenuItem
         '
         Me.PreventivoToolStripMenuItem.Name = "PreventivoToolStripMenuItem"
-        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.PreventivoToolStripMenuItem.Text = "Preventivo"
+        '
+        'BookingcomToolStripMenuItem
+        '
+        Me.BookingcomToolStripMenuItem.Name = "BookingcomToolStripMenuItem"
+        Me.BookingcomToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.BookingcomToolStripMenuItem.Text = "Booking.com"
         '
         'LinguaToolStripMenuItem
         '
@@ -251,12 +258,6 @@ Partial Class Form1
         Me.CheckBox2.TabIndex = 15
         Me.CheckBox2.Text = "Allegati per informazioni STD"
         Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'BookingcomToolStripMenuItem
-        '
-        Me.BookingcomToolStripMenuItem.Name = "BookingcomToolStripMenuItem"
-        Me.BookingcomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BookingcomToolStripMenuItem.Text = "Booking.com"
         '
         'Form1
         '

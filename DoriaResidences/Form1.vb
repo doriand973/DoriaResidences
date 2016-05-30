@@ -299,4 +299,23 @@ Public Class Form1
     Private Sub BookingcomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingcomToolStripMenuItem.Click
         Form5.Show()
     End Sub
+
+
+    Private Sub ListBox1_DragEnter(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles ListBox1.DragEnter
+        'Abilitazione al Drag Drop sulla Listbox per allegare file alla mail
+        If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
+            e.Effect = DragDropEffects.All
+        Else
+            e.Effect = DragDropEffects.None
+        End If
+    End Sub
+
+    Private Sub ListBox1_DragDrop(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles ListBox1.DragDrop
+        'Creazione della string da aggiungere alla listbox degli allegati
+        Dim s() As String = e.Data.GetData("FileDrop", False)
+        Dim i As Integer
+        For i = 0 To s.Length - 1
+            ListBox1.Items.Add(s(i))
+        Next i
+    End Sub
 End Class
