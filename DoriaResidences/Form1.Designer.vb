@@ -30,7 +30,6 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -49,6 +48,7 @@ Partial Class Form1
         Me.DatiMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.BookingcomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -114,15 +114,6 @@ Partial Class Form1
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Invia"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(357, 69)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(113, 33)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Dettagli Mail"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'ListBox1
         '
@@ -191,7 +182,7 @@ Partial Class Form1
         '
         'StrumentiToolStripMenuItem
         '
-        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DettagliMailToolStripMenuItem, Me.PreventivoToolStripMenuItem})
+        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DettagliMailToolStripMenuItem, Me.PreventivoToolStripMenuItem, Me.BookingcomToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
         Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
         Me.StrumentiToolStripMenuItem.Text = "Strumenti"
@@ -199,13 +190,13 @@ Partial Class Form1
         'DettagliMailToolStripMenuItem
         '
         Me.DettagliMailToolStripMenuItem.Name = "DettagliMailToolStripMenuItem"
-        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.DettagliMailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DettagliMailToolStripMenuItem.Text = "Dettagli Mail"
         '
         'PreventivoToolStripMenuItem
         '
         Me.PreventivoToolStripMenuItem.Name = "PreventivoToolStripMenuItem"
-        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.PreventivoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PreventivoToolStripMenuItem.Text = "Preventivo"
         '
         'LinguaToolStripMenuItem
@@ -261,6 +252,12 @@ Partial Class Form1
         Me.CheckBox2.Text = "Allegati per informazioni STD"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
+        'BookingcomToolStripMenuItem
+        '
+        Me.BookingcomToolStripMenuItem.Name = "BookingcomToolStripMenuItem"
+        Me.BookingcomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingcomToolStripMenuItem.Text = "Booking.com"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -272,7 +269,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox2)
@@ -298,7 +294,6 @@ Partial Class Form1
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
@@ -317,4 +312,5 @@ Partial Class Form1
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents DatiMailToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents BookingcomToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -7,7 +7,7 @@
     Dim destinat As String
     Dim saluto As String
     Dim corpo As String
-    Dim FIRMA As String = vbNewLine & "Andrea Doria" & vbNewLine & vbNewLine & "Doria Residences" & vbNewLine & "mail: doria.residences@gmail.com" & vbNewLine & "internet: www.doriares.it" & vbNewLine & "mobile: +393358273362"
+    Dim firma As String = vbNewLine & "Andrea Doria" & vbNewLine & vbNewLine & Form1.INTESTAZIONE_MAIL
     Dim oggetto As String
     Public preventivo As String = ""
     Dim finale As Integer
@@ -140,7 +140,7 @@
                 Exit Sub
             End If
         End If
-        corpo = saluto & testo & FIRMA
+        corpo = saluto & testo & firma
         Form1.TextBox3.Text = corpo
         Form1.TextBox2.Text = oggetto
         Me.Close()
@@ -149,5 +149,6 @@
     Private Sub RadioButton12_Click(sender As Object, e As EventArgs) Handles RadioButton12.Click
         Form4.Show()
     End Sub
+
 End Class
 

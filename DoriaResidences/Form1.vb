@@ -6,6 +6,7 @@ Public Class Form1
     Dim INDIRIZZO As String = IniRead(PATHINI, “MAIL”, “mailmitt”)
     Dim INDIRIZZO2 As String = IniRead(PATHINI, “MAIL”, “mailccn”)
     Dim PASS As String = IniRead(PATHINI, “MAIL”, “psw”)
+    Public INTESTAZIONE_MAIL As String = "Doria Residences" & vbNewLine & "mail:" & IniRead(PATHINI, “INTESTA”, “mail”) & vbNewLine & "internet: " & IniRead(PATHINI, “INTESTA”, “internet”) & vbNewLine & "mobile: " & IniRead(PATHINI, “INTESTA”, “mobile”)
     Dim allegato1 As String
     Dim allegato2 As String
     Dim allegato As String = ""
@@ -203,7 +204,7 @@ Public Class Form1
         Form2.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         '********************************************************************
         ' Apre scheda TIPO MAIL
         '********************************************************************
@@ -295,5 +296,7 @@ Public Class Form1
         End If
     End Sub
 
-
+    Private Sub BookingcomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingcomToolStripMenuItem.Click
+        Form5.Show()
+    End Sub
 End Class
