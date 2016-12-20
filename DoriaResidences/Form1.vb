@@ -322,4 +322,12 @@ Public Class FormMail
     Private Sub DatiPrezziario_Click(sender As Object, e As EventArgs) Handles DatiPrezziario.Click
         Preziario.Show()
     End Sub
+
+    Private Sub DatiSpeseAccessorieToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatiSpeseAccessorieToolStripMenuItem.Click
+        FormSpese.Show()
+    End Sub
+
+    Private Sub AllegatiStandardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllegatiStandardToolStripMenuItem.Click
+        FormAllegati.Show()
+    End Sub
 End Class

@@ -47,6 +47,8 @@ Partial Class FormMail
         Me.ImpostazioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PathFileLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatiMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatiSpeseAccessorieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AllegatiStandardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatiPrezziario = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.CheckBoxAllega = New System.Windows.Forms.CheckBox()
@@ -232,7 +234,7 @@ Partial Class FormMail
         '
         'ImpostazioniToolStripMenuItem
         '
-        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem, Me.DatiMailToolStripMenuItem, Me.DatiPrezziario})
+        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem, Me.DatiMailToolStripMenuItem, Me.DatiSpeseAccessorieToolStripMenuItem, Me.AllegatiStandardToolStripMenuItem, Me.DatiPrezziario})
         Me.ImpostazioniToolStripMenuItem.Name = "ImpostazioniToolStripMenuItem"
         Me.ImpostazioniToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
         Me.ImpostazioniToolStripMenuItem.Text = "Impostazioni"
@@ -240,19 +242,31 @@ Partial Class FormMail
         'PathFileLogToolStripMenuItem
         '
         Me.PathFileLogToolStripMenuItem.Name = "PathFileLogToolStripMenuItem"
-        Me.PathFileLogToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.PathFileLogToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.PathFileLogToolStripMenuItem.Text = "Path file Log"
         '
         'DatiMailToolStripMenuItem
         '
         Me.DatiMailToolStripMenuItem.Name = "DatiMailToolStripMenuItem"
-        Me.DatiMailToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.DatiMailToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.DatiMailToolStripMenuItem.Text = "Dati Account Mail"
+        '
+        'DatiSpeseAccessorieToolStripMenuItem
+        '
+        Me.DatiSpeseAccessorieToolStripMenuItem.Name = "DatiSpeseAccessorieToolStripMenuItem"
+        Me.DatiSpeseAccessorieToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.DatiSpeseAccessorieToolStripMenuItem.Text = "Dati Spese Accessorie"
+        '
+        'AllegatiStandardToolStripMenuItem
+        '
+        Me.AllegatiStandardToolStripMenuItem.Name = "AllegatiStandardToolStripMenuItem"
+        Me.AllegatiStandardToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.AllegatiStandardToolStripMenuItem.Text = "Allegati Standard"
         '
         'DatiPrezziario
         '
         Me.DatiPrezziario.Name = "DatiPrezziario"
-        Me.DatiPrezziario.Size = New System.Drawing.Size(169, 22)
+        Me.DatiPrezziario.Size = New System.Drawing.Size(187, 22)
         Me.DatiPrezziario.Text = "Dati Prezziario"
         '
         'CheckBoxAllega
@@ -322,4 +336,6 @@ Partial Class FormMail
     Friend WithEvents CheckBoxAllega As CheckBox
     Friend WithEvents BookingcomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DatiPrezziario As ToolStripMenuItem
+    Friend WithEvents DatiSpeseAccessorieToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AllegatiStandardToolStripMenuItem As ToolStripMenuItem
 End Class
