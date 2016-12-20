@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class FormMail
     Inherits System.Windows.Forms.Form
 
     'Form esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
@@ -22,20 +22,20 @@ Partial Class Form1
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMail))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.TxtDestinatario = New System.Windows.Forms.TextBox()
+        Me.TxtOggetto = New System.Windows.Forms.TextBox()
+        Me.TxtTesto = New System.Windows.Forms.TextBox()
+        Me.BtnInvia = New System.Windows.Forms.Button()
+        Me.LstAllega = New System.Windows.Forms.ListBox()
+        Me.BtnAllegaFile = New System.Windows.Forms.Button()
+        Me.BtnAnnulla = New System.Windows.Forms.Button()
+        Me.BtnRimuoviSel = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxCcn = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.StrumentiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DettagliMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -47,8 +47,9 @@ Partial Class Form1
         Me.ImpostazioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PathFileLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatiMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatiPrezziario = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxAllega = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -79,98 +80,98 @@ Partial Class Form1
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Allegati"
         '
-        'TextBox1
+        'TxtDestinatario
         '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 82)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(328, 20)
-        Me.TextBox1.TabIndex = 3
+        Me.TxtDestinatario.Location = New System.Drawing.Point(18, 82)
+        Me.TxtDestinatario.Name = "TxtDestinatario"
+        Me.TxtDestinatario.Size = New System.Drawing.Size(328, 20)
+        Me.TxtDestinatario.TabIndex = 3
         '
-        'TextBox2
+        'TxtOggetto
         '
-        Me.TextBox2.Location = New System.Drawing.Point(18, 138)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(452, 20)
-        Me.TextBox2.TabIndex = 4
+        Me.TxtOggetto.Location = New System.Drawing.Point(18, 138)
+        Me.TxtOggetto.Name = "TxtOggetto"
+        Me.TxtOggetto.Size = New System.Drawing.Size(452, 20)
+        Me.TxtOggetto.TabIndex = 4
         '
-        'TextBox3
+        'TxtTesto
         '
-        Me.TextBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.TxtTesto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox3.Location = New System.Drawing.Point(18, 185)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox3.Size = New System.Drawing.Size(876, 200)
-        Me.TextBox3.TabIndex = 5
+        Me.TxtTesto.Location = New System.Drawing.Point(18, 185)
+        Me.TxtTesto.Multiline = True
+        Me.TxtTesto.Name = "TxtTesto"
+        Me.TxtTesto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TxtTesto.Size = New System.Drawing.Size(876, 200)
+        Me.TxtTesto.TabIndex = 5
         '
-        'Button1
+        'BtnInvia
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(23, 408)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 28)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Invia"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnInvia.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnInvia.Location = New System.Drawing.Point(23, 408)
+        Me.BtnInvia.Name = "BtnInvia"
+        Me.BtnInvia.Size = New System.Drawing.Size(103, 28)
+        Me.BtnInvia.TabIndex = 6
+        Me.BtnInvia.Text = "Invia"
+        Me.BtnInvia.UseVisualStyleBackColor = True
         '
-        'ListBox1
+        'LstAllega
         '
-        Me.ListBox1.AllowDrop = True
-        Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.LstAllega.AllowDrop = True
+        Me.LstAllega.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(671, 33)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(210, 69)
-        Me.ListBox1.TabIndex = 8
+        Me.LstAllega.FormattingEnabled = True
+        Me.LstAllega.Location = New System.Drawing.Point(671, 33)
+        Me.LstAllega.Name = "LstAllega"
+        Me.LstAllega.Size = New System.Drawing.Size(210, 69)
+        Me.LstAllega.TabIndex = 8
         '
-        'Button3
+        'BtnAllegaFile
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(783, 108)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(98, 33)
-        Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Allega File"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BtnAllegaFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnAllegaFile.Location = New System.Drawing.Point(783, 108)
+        Me.BtnAllegaFile.Name = "BtnAllegaFile"
+        Me.BtnAllegaFile.Size = New System.Drawing.Size(98, 33)
+        Me.BtnAllegaFile.TabIndex = 9
+        Me.BtnAllegaFile.Text = "Allega File"
+        Me.BtnAllegaFile.UseVisualStyleBackColor = True
         '
-        'Button4
+        'BtnAnnulla
         '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(152, 408)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(103, 28)
-        Me.Button4.TabIndex = 10
-        Me.Button4.Text = "Annulla"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.BtnAnnulla.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnAnnulla.Location = New System.Drawing.Point(152, 408)
+        Me.BtnAnnulla.Name = "BtnAnnulla"
+        Me.BtnAnnulla.Size = New System.Drawing.Size(103, 28)
+        Me.BtnAnnulla.TabIndex = 10
+        Me.BtnAnnulla.Text = "Annulla"
+        Me.BtnAnnulla.UseVisualStyleBackColor = True
         '
-        'Button5
+        'BtnRimuoviSel
         '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(671, 108)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 33)
-        Me.Button5.TabIndex = 11
-        Me.Button5.Text = "Rimuovi sel"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.BtnRimuoviSel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnRimuoviSel.Location = New System.Drawing.Point(671, 108)
+        Me.BtnRimuoviSel.Name = "BtnRimuoviSel"
+        Me.BtnRimuoviSel.Size = New System.Drawing.Size(98, 33)
+        Me.BtnRimuoviSel.TabIndex = 11
+        Me.BtnRimuoviSel.Text = "Rimuovi sel"
+        Me.BtnRimuoviSel.UseVisualStyleBackColor = True
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.InitialDirectory = "G:\Documenti\000 Doria residences"
         '
-        'CheckBox1
+        'CheckBoxCcn
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Checked = True
-        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Location = New System.Drawing.Point(93, 49)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(73, 17)
-        Me.CheckBox1.TabIndex = 12
-        Me.CheckBox1.Text = "Ccn Doria"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CheckBoxCcn.AutoSize = True
+        Me.CheckBoxCcn.Checked = True
+        Me.CheckBoxCcn.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxCcn.Location = New System.Drawing.Point(93, 49)
+        Me.CheckBoxCcn.Name = "CheckBoxCcn"
+        Me.CheckBoxCcn.Size = New System.Drawing.Size(73, 17)
+        Me.CheckBoxCcn.TabIndex = 12
+        Me.CheckBoxCcn.Text = "Ccn Doria"
+        Me.CheckBoxCcn.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -231,7 +232,7 @@ Partial Class Form1
         '
         'ImpostazioniToolStripMenuItem
         '
-        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem, Me.DatiMailToolStripMenuItem})
+        Me.ImpostazioniToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PathFileLogToolStripMenuItem, Me.DatiMailToolStripMenuItem, Me.DatiPrezziario})
         Me.ImpostazioniToolStripMenuItem.Name = "ImpostazioniToolStripMenuItem"
         Me.ImpostazioniToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
         Me.ImpostazioniToolStripMenuItem.Text = "Impostazioni"
@@ -248,38 +249,44 @@ Partial Class Form1
         Me.DatiMailToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.DatiMailToolStripMenuItem.Text = "Dati Account Mail"
         '
-        'CheckBox2
+        'DatiPrezziario
         '
-        Me.CheckBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(671, 147)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(161, 17)
-        Me.CheckBox2.TabIndex = 15
-        Me.CheckBox2.Text = "Allegati per informazioni STD"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.DatiPrezziario.Name = "DatiPrezziario"
+        Me.DatiPrezziario.Size = New System.Drawing.Size(169, 22)
+        Me.DatiPrezziario.Text = "Dati Prezziario"
         '
-        'Form1
+        'CheckBoxAllega
+        '
+        Me.CheckBoxAllega.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CheckBoxAllega.AutoSize = True
+        Me.CheckBoxAllega.Location = New System.Drawing.Point(671, 147)
+        Me.CheckBoxAllega.Name = "CheckBoxAllega"
+        Me.CheckBoxAllega.Size = New System.Drawing.Size(161, 17)
+        Me.CheckBoxAllega.TabIndex = 15
+        Me.CheckBoxAllega.Text = "Allegati per informazioni STD"
+        Me.CheckBoxAllega.UseVisualStyleBackColor = True
+        '
+        'FormMail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 448)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.CheckBoxAllega)
+        Me.Controls.Add(Me.CheckBoxCcn)
+        Me.Controls.Add(Me.BtnRimuoviSel)
+        Me.Controls.Add(Me.BtnAnnulla)
+        Me.Controls.Add(Me.BtnAllegaFile)
+        Me.Controls.Add(Me.LstAllega)
+        Me.Controls.Add(Me.BtnInvia)
+        Me.Controls.Add(Me.TxtTesto)
+        Me.Controls.Add(Me.TxtOggetto)
+        Me.Controls.Add(Me.TxtDestinatario)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form1"
+        Me.Name = "FormMail"
         Me.Text = "Doria Residences Mail"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -291,16 +298,16 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents TxtDestinatario As TextBox
+    Friend WithEvents TxtOggetto As TextBox
+    Friend WithEvents TxtTesto As TextBox
+    Friend WithEvents BtnInvia As Button
+    Friend WithEvents LstAllega As ListBox
+    Friend WithEvents BtnAllegaFile As Button
+    Friend WithEvents BtnAnnulla As Button
+    Friend WithEvents BtnRimuoviSel As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents CheckBoxCcn As CheckBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents StrumentiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DettagliMailToolStripMenuItem As ToolStripMenuItem
@@ -312,6 +319,7 @@ Partial Class Form1
     Friend WithEvents PathFileLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents DatiMailToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents CheckBoxAllega As CheckBox
     Friend WithEvents BookingcomToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DatiPrezziario As ToolStripMenuItem
 End Class

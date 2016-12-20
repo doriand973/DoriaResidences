@@ -22,45 +22,45 @@ Partial Class Form3
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TxtIdAccount = New System.Windows.Forms.TextBox()
+        Me.TxtPassword = New System.Windows.Forms.TextBox()
+        Me.TxtSmtp = New System.Windows.Forms.TextBox()
+        Me.TxtCcnMail = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BtnOkDati = New System.Windows.Forms.Button()
+        Me.BtnAnnulDati = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'TxtIdAccount
         '
-        Me.TextBox1.Location = New System.Drawing.Point(9, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(242, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.TxtIdAccount.Location = New System.Drawing.Point(9, 25)
+        Me.TxtIdAccount.Name = "TxtIdAccount"
+        Me.TxtIdAccount.Size = New System.Drawing.Size(242, 20)
+        Me.TxtIdAccount.TabIndex = 0
         '
-        'TextBox2
+        'TxtPassword
         '
-        Me.TextBox2.Location = New System.Drawing.Point(9, 64)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(242, 20)
-        Me.TextBox2.TabIndex = 1
+        Me.TxtPassword.Location = New System.Drawing.Point(9, 64)
+        Me.TxtPassword.Name = "TxtPassword"
+        Me.TxtPassword.Size = New System.Drawing.Size(242, 20)
+        Me.TxtPassword.TabIndex = 1
         '
-        'TextBox3
+        'TxtSmtp
         '
-        Me.TextBox3.Location = New System.Drawing.Point(9, 103)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(242, 20)
-        Me.TextBox3.TabIndex = 2
+        Me.TxtSmtp.Location = New System.Drawing.Point(9, 103)
+        Me.TxtSmtp.Name = "TxtSmtp"
+        Me.TxtSmtp.Size = New System.Drawing.Size(242, 20)
+        Me.TxtSmtp.TabIndex = 2
         '
-        'TextBox4
+        'TxtCcnMail
         '
-        Me.TextBox4.Location = New System.Drawing.Point(9, 142)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(242, 20)
-        Me.TextBox4.TabIndex = 3
+        Me.TxtCcnMail.Location = New System.Drawing.Point(9, 142)
+        Me.TxtCcnMail.Name = "TxtCcnMail"
+        Me.TxtCcnMail.Size = New System.Drawing.Size(242, 20)
+        Me.TxtCcnMail.TabIndex = 3
         '
         'Label1
         '
@@ -98,41 +98,41 @@ Partial Class Form3
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Ccn mail"
         '
-        'Button1
+        'BtnOkDati
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(171, 183)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 30)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Ok"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnOkDati.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOkDati.Location = New System.Drawing.Point(171, 183)
+        Me.BtnOkDati.Name = "BtnOkDati"
+        Me.BtnOkDati.Size = New System.Drawing.Size(80, 30)
+        Me.BtnOkDati.TabIndex = 8
+        Me.BtnOkDati.Text = "Ok"
+        Me.BtnOkDati.UseVisualStyleBackColor = True
         '
-        'Button2
+        'BtnAnnulDati
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(85, 183)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 30)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Annulla"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BtnAnnulDati.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnAnnulDati.Location = New System.Drawing.Point(85, 183)
+        Me.BtnAnnulDati.Name = "BtnAnnulDati"
+        Me.BtnAnnulDati.Size = New System.Drawing.Size(80, 30)
+        Me.BtnAnnulDati.TabIndex = 9
+        Me.BtnAnnulDati.Text = "Annulla"
+        Me.BtnAnnulDati.UseVisualStyleBackColor = True
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 230)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BtnAnnulDati)
+        Me.Controls.Add(Me.BtnOkDati)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TxtCcnMail)
+        Me.Controls.Add(Me.TxtSmtp)
+        Me.Controls.Add(Me.TxtPassword)
+        Me.Controls.Add(Me.TxtIdAccount)
         Me.Name = "Form3"
         Me.Text = "Dati Account Mail"
         Me.ResumeLayout(False)
@@ -140,14 +140,14 @@ Partial Class Form3
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TxtIdAccount As TextBox
+    Friend WithEvents TxtPassword As TextBox
+    Friend WithEvents TxtSmtp As TextBox
+    Friend WithEvents TxtCcnMail As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents BtnOkDati As Button
+    Friend WithEvents BtnAnnulDati As Button
 End Class

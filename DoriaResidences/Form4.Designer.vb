@@ -23,53 +23,53 @@ Partial Class Form4
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form4))
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
+        Me.MonthCalArrivo = New System.Windows.Forms.MonthCalendar()
+        Me.TxtDataArrivo = New System.Windows.Forms.TextBox()
+        Me.TxtDataPartenza = New System.Windows.Forms.TextBox()
+        Me.MonthCalPartenza = New System.Windows.Forms.MonthCalendar()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.BtnCalcola = New System.Windows.Forms.Button()
+        Me.ComboBoxAppartamento = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.BtnAnnulCalc = New System.Windows.Forms.Button()
+        Me.BtnOkPreventivo = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TxtPrezzoFinale = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxAnimali = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxExtra = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
-        'MonthCalendar1
+        'MonthCalArrivo
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(305, 18)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.ShowToday = False
-        Me.MonthCalendar1.TabIndex = 0
-        Me.MonthCalendar1.Visible = False
+        Me.MonthCalArrivo.Location = New System.Drawing.Point(305, 18)
+        Me.MonthCalArrivo.Name = "MonthCalArrivo"
+        Me.MonthCalArrivo.ShowToday = False
+        Me.MonthCalArrivo.TabIndex = 0
+        Me.MonthCalArrivo.Visible = False
         '
-        'TextBox1
+        'TxtDataArrivo
         '
-        Me.TextBox1.Location = New System.Drawing.Point(109, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(184, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.TxtDataArrivo.Location = New System.Drawing.Point(109, 25)
+        Me.TxtDataArrivo.Name = "TxtDataArrivo"
+        Me.TxtDataArrivo.Size = New System.Drawing.Size(184, 20)
+        Me.TxtDataArrivo.TabIndex = 2
         '
-        'TextBox2
+        'TxtDataPartenza
         '
-        Me.TextBox2.Location = New System.Drawing.Point(109, 68)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(184, 20)
-        Me.TextBox2.TabIndex = 5
+        Me.TxtDataPartenza.Location = New System.Drawing.Point(109, 68)
+        Me.TxtDataPartenza.Name = "TxtDataPartenza"
+        Me.TxtDataPartenza.Size = New System.Drawing.Size(184, 20)
+        Me.TxtDataPartenza.TabIndex = 5
         '
-        'MonthCalendar2
+        'MonthCalPartenza
         '
-        Me.MonthCalendar2.Location = New System.Drawing.Point(305, 68)
-        Me.MonthCalendar2.Name = "MonthCalendar2"
-        Me.MonthCalendar2.ShowToday = False
-        Me.MonthCalendar2.TabIndex = 3
-        Me.MonthCalendar2.Visible = False
+        Me.MonthCalPartenza.Location = New System.Drawing.Point(305, 68)
+        Me.MonthCalPartenza.Name = "MonthCalPartenza"
+        Me.MonthCalPartenza.ShowToday = False
+        Me.MonthCalPartenza.TabIndex = 3
+        Me.MonthCalPartenza.Visible = False
         '
         'TextBox3
         '
@@ -83,24 +83,24 @@ Partial Class Form4
         Me.TextBox3.Size = New System.Drawing.Size(738, 193)
         Me.TextBox3.TabIndex = 6
         '
-        'Button3
+        'BtnCalcola
         '
-        Me.Button3.Location = New System.Drawing.Point(15, 102)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(95, 32)
-        Me.Button3.TabIndex = 7
-        Me.Button3.Text = "Calcola"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BtnCalcola.Location = New System.Drawing.Point(15, 102)
+        Me.BtnCalcola.Name = "BtnCalcola"
+        Me.BtnCalcola.Size = New System.Drawing.Size(95, 32)
+        Me.BtnCalcola.TabIndex = 7
+        Me.BtnCalcola.Text = "Calcola"
+        Me.BtnCalcola.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'ComboBoxAppartamento
         '
-        Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Bilo", "Trilo", "Trilo 2"})
-        Me.ComboBox1.Location = New System.Drawing.Point(646, 25)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(107, 21)
-        Me.ComboBox1.TabIndex = 8
+        Me.ComboBoxAppartamento.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ComboBoxAppartamento.FormattingEnabled = True
+        Me.ComboBoxAppartamento.Items.AddRange(New Object() {"Bilo", "Trilo", "Trilo 2"})
+        Me.ComboBoxAppartamento.Location = New System.Drawing.Point(646, 25)
+        Me.ComboBoxAppartamento.Name = "ComboBoxAppartamento"
+        Me.ComboBoxAppartamento.Size = New System.Drawing.Size(107, 21)
+        Me.ComboBoxAppartamento.TabIndex = 8
         '
         'Label1
         '
@@ -112,24 +112,24 @@ Partial Class Form4
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Tipo appartamento"
         '
-        'Button4
+        'BtnAnnulCalc
         '
-        Me.Button4.Location = New System.Drawing.Point(126, 102)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(95, 32)
-        Me.Button4.TabIndex = 10
-        Me.Button4.Text = "Annulla"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.BtnAnnulCalc.Location = New System.Drawing.Point(126, 102)
+        Me.BtnAnnulCalc.Name = "BtnAnnulCalc"
+        Me.BtnAnnulCalc.Size = New System.Drawing.Size(95, 32)
+        Me.BtnAnnulCalc.TabIndex = 10
+        Me.BtnAnnulCalc.Text = "Annulla"
+        Me.BtnAnnulCalc.UseVisualStyleBackColor = True
         '
-        'Button5
+        'BtnOkPreventivo
         '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(650, 347)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(95, 32)
-        Me.Button5.TabIndex = 14
-        Me.Button5.Text = "Ok"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.BtnOkPreventivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnOkPreventivo.Location = New System.Drawing.Point(650, 347)
+        Me.BtnOkPreventivo.Name = "BtnOkPreventivo"
+        Me.BtnOkPreventivo.Size = New System.Drawing.Size(95, 32)
+        Me.BtnOkPreventivo.TabIndex = 14
+        Me.BtnOkPreventivo.Text = "Ok"
+        Me.BtnOkPreventivo.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -149,13 +149,13 @@ Partial Class Form4
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Data Partenza"
         '
-        'TextBox4
+        'TxtPrezzoFinale
         '
-        Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.Location = New System.Drawing.Point(646, 61)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(107, 20)
-        Me.TextBox4.TabIndex = 17
+        Me.TxtPrezzoFinale.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtPrezzoFinale.Location = New System.Drawing.Point(646, 61)
+        Me.TxtPrezzoFinale.Name = "TxtPrezzoFinale"
+        Me.TxtPrezzoFinale.Size = New System.Drawing.Size(107, 20)
+        Me.TxtPrezzoFinale.TabIndex = 17
         '
         'Label4
         '
@@ -167,47 +167,47 @@ Partial Class Form4
         Me.Label4.TabIndex = 18
         Me.Label4.Text = "Prezzo Finale"
         '
-        'CheckBox1
+        'CheckBoxAnimali
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(646, 102)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(59, 17)
-        Me.CheckBox1.TabIndex = 19
-        Me.CheckBox1.Text = "Animali"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CheckBoxAnimali.AutoSize = True
+        Me.CheckBoxAnimali.Location = New System.Drawing.Point(646, 102)
+        Me.CheckBoxAnimali.Name = "CheckBoxAnimali"
+        Me.CheckBoxAnimali.Size = New System.Drawing.Size(59, 17)
+        Me.CheckBoxAnimali.TabIndex = 19
+        Me.CheckBoxAnimali.Text = "Animali"
+        Me.CheckBoxAnimali.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'CheckBoxExtra
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(646, 122)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(50, 17)
-        Me.CheckBox2.TabIndex = 20
-        Me.CheckBox2.Text = "Extra"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.CheckBoxExtra.AutoSize = True
+        Me.CheckBoxExtra.Location = New System.Drawing.Point(646, 122)
+        Me.CheckBoxExtra.Name = "CheckBoxExtra"
+        Me.CheckBoxExtra.Size = New System.Drawing.Size(50, 17)
+        Me.CheckBoxExtra.TabIndex = 20
+        Me.CheckBoxExtra.Text = "Extra"
+        Me.CheckBoxExtra.UseVisualStyleBackColor = True
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(770, 391)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.CheckBoxExtra)
+        Me.Controls.Add(Me.CheckBoxAnimali)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TxtPrezzoFinale)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.BtnOkPreventivo)
+        Me.Controls.Add(Me.BtnAnnulCalc)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.ComboBoxAppartamento)
+        Me.Controls.Add(Me.BtnCalcola)
         Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.MonthCalendar2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.MonthCalendar1)
+        Me.Controls.Add(Me.TxtDataPartenza)
+        Me.Controls.Add(Me.MonthCalPartenza)
+        Me.Controls.Add(Me.TxtDataArrivo)
+        Me.Controls.Add(Me.MonthCalArrivo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form4"
         Me.Text = "Preventivo"
@@ -216,20 +216,20 @@ Partial Class Form4
 
     End Sub
 
-    Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents MonthCalendar2 As MonthCalendar
+    Friend WithEvents MonthCalArrivo As MonthCalendar
+    Friend WithEvents TxtDataArrivo As TextBox
+    Friend WithEvents TxtDataPartenza As TextBox
+    Friend WithEvents MonthCalPartenza As MonthCalendar
     Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Button3 As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents BtnCalcola As Button
+    Friend WithEvents ComboBoxAppartamento As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents BtnAnnulCalc As Button
+    Friend WithEvents BtnOkPreventivo As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TxtPrezzoFinale As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents CheckBoxAnimali As CheckBox
+    Friend WithEvents CheckBoxExtra As CheckBox
 End Class

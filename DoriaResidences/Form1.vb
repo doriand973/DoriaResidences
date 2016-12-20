@@ -1,7 +1,7 @@
 ﻿Imports System.Net.Mail
 Imports System.IO
-Public Class Form1
-    Public PATHINI As String = “G:\doriares.ini” ' path file INI
+Public Class FormMail
+    Public PATHINI As String = “C:\Doriares\doriares.ini” ' path file INI
     Dim smtpString As String = IniRead(PATHINI, “MAIL”, “smtp”)
     Dim INDIRIZZO As String = IniRead(PATHINI, “MAIL”, “mailmitt”)
     Dim INDIRIZZO2 As String = IniRead(PATHINI, “MAIL”, “mailccn”)
@@ -85,7 +85,7 @@ Public Class Form1
 
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnInvia.Click
         '*************************************************************************
         'Creo nuovo messaggio mail e INVIO MAIL
         '*************************************************************************
@@ -95,19 +95,19 @@ Public Class Form1
         '*************************************************************************
         'Controllo per Ccn su mail secondaria
         '*************************************************************************
-        If CheckBox1.Checked Then
+        If CheckBoxCcn.Checked Then
             Mail.Bcc.Add(New MailAddress(INDIRIZZO2)) 'Indirizzo di copia conoscenza mail Ccn
         End If
         '*************************************************************************
         'Destinatario mail
         '*************************************************************************
         Try
-            Mail.To.Add(TextBox1.Text)
+            Mail.To.Add(TxtDestinatario.Text)
         Catch ex As Exception
             MsgBox("ATTENZIONE!" & vbNewLine & "Email destinatario non corretto!")
             Exit Sub
         End Try
-        Mail.Subject = TextBox2.Text
+        Mail.Subject = TxtOggetto.Text
         '*************************************************************************
         'CONFERMA LETTURA
         '*************************************************************************
@@ -118,13 +118,13 @@ Public Class Form1
         Mail.Headers.Add(“Return-Receipt-To”, INDIRIZZO)
         Mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure Or DeliveryNotificationOptions.OnSuccess
 
-        Mail.Body = TextBox3.Text
+        Mail.Body = TxtTesto.Text
         '*************************************************************************
         'Creazioni path per i file da allegare alla mail
         '*************************************************************************
-        If ListBox1.Items.Count <> 0 Then
-            For i = 0 To ListBox1.Items.Count - 1
-                allegato = ListBox1.Items.Item(i).ToString
+        If LstAllega.Items.Count <> 0 Then
+            For i = 0 To LstAllega.Items.Count - 1
+                allegato = LstAllega.Items.Item(i).ToString
                 allegati += allegati & vbNewLine & allegato
                 Mail.Attachments.Add(New Attachment(allegato))
             Next
@@ -138,49 +138,49 @@ Public Class Form1
         '********************************************************************
         'Scrittura File Log email inviata
         '********************************************************************
-        Dim logCont As String = TextBox1.Text & vbNewLine & TextBox3.Text & vbNewLine & allegati
+        Dim logCont As String = TxtDestinatario.Text & vbNewLine & TxtTesto.Text & vbNewLine & allegati
         Try
             ScriviLogData(logCont)
         Catch ex As Exception
             MsgBox("File log non scritto correttamente")
         End Try
-        TextBox1.Clear()
-        TextBox2.Clear()
-        TextBox3.Clear()
-        ListBox1.Items.Clear()
-        CheckBox2.Checked = False
+        TxtDestinatario.Clear()
+        TxtOggetto.Clear()
+        TxtTesto.Clear()
+        LstAllega.Items.Clear()
+        CheckBoxAllega.Checked = False
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles BtnAllegaFile.Click
         '********************************************************************
         'Apertura file manager per inserimento Allegato
         '********************************************************************
         OpenFileDialog1.ShowDialog()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles BtnAnnulla.Click
         '********************************************************************
         ' Tasto Annulla
         '********************************************************************
-        TextBox1.Clear()
-        TextBox2.Clear()
-        TextBox3.Clear()
-        ListBox1.Items.Clear()
-        CheckBox2.Checked = False
+        TxtDestinatario.Clear()
+        TxtOggetto.Clear()
+        TxtTesto.Clear()
+        LstAllega.Items.Clear()
+        CheckBoxAllega.Checked = False
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles BtnRimuoviSel.Click
         '********************************************************************
         ' Elimina allegato selezionato
         '********************************************************************
-        ListBox1.Items.Remove(ListBox1.SelectedItem)
+        LstAllega.Items.Remove(LstAllega.SelectedItem)
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
         '********************************************************************
         ' Aggiunge PATH del file selezionato da allegare
         '********************************************************************
-        ListBox1.Items.Add(OpenFileDialog1.FileName.ToString())
+        LstAllega.Items.Add(OpenFileDialog1.FileName.ToString())
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs)
@@ -235,7 +235,7 @@ Public Class Form1
         Dim data As Date = Date.Now()
         Dim oggi As String = data.ToString("dd-MM-yyyy H-mm-ss")
         Dim pathLog As String = IniRead(PATHINI, “PATHLOG”, “path”) ' path dove salvare i file log delle mail inviate
-        Dim nomeFile As String = pathLog & "\" & TextBox2.Text & "-" & oggi & ".log"
+        Dim nomeFile As String = pathLog & "\" & TxtOggetto.Text & "-" & oggi & ".log"
         'Controllo esistenza file Log .log
         If File.Exists(nomeFile) = False Then
             'Creo il file Log se non esiste
@@ -280,8 +280,8 @@ Public Class Form1
         Form3.Show()
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
-        If CheckBox2.Checked Then
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxAllega.CheckedChanged
+        If CheckBoxAllega.Checked Then
             If ItalianoToolStripMenuItem.Checked Then
                 allegato1 = IniRead(PATHINI, “ALLEGATI”, “allega1”)
                 allegato2 = IniRead(PATHINI, “ALLEGATI”, “allega2”)
@@ -291,8 +291,8 @@ Public Class Form1
                 allegato2 = IniRead(PATHINI, “ALLEGATI”, “allega4”)
 
             End If
-            ListBox1.Items.Add(allegato1)
-            ListBox1.Items.Add(allegato2)
+            LstAllega.Items.Add(allegato1)
+            LstAllega.Items.Add(allegato2)
         End If
     End Sub
 
@@ -301,7 +301,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub ListBox1_DragEnter(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles ListBox1.DragEnter
+    Private Sub ListBox1_DragEnter(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles LstAllega.DragEnter
         'Abilitazione al Drag Drop sulla Listbox per allegare file alla mail
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
             e.Effect = DragDropEffects.All
@@ -310,12 +310,16 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ListBox1_DragDrop(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles ListBox1.DragDrop
+    Private Sub ListBox1_DragDrop(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles LstAllega.DragDrop
         'Creazione della string da aggiungere alla listbox degli allegati
         Dim s() As String = e.Data.GetData("FileDrop", False)
         Dim i As Integer
         For i = 0 To s.Length - 1
-            ListBox1.Items.Add(s(i))
+            LstAllega.Items.Add(s(i))
         Next i
+    End Sub
+
+    Private Sub DatiPrezziario_Click(sender As Object, e As EventArgs) Handles DatiPrezziario.Click
+        Preziario.Show()
     End Sub
 End Class

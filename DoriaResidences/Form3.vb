@@ -1,7 +1,7 @@
 ﻿
 Public Class Form3
     Dim scritturaOk = New Boolean() {True, True, True, True}
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnOkDati.Click
 
         'Dim PATH As String = “G:\doriares.ini”
         'For i As Integer = 0 To 3
@@ -35,29 +35,29 @@ Public Class Form3
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox1.Text = Form1.IniRead(Form1.PATHINI, “MAIL”, “mailmitt”)
-        TextBox2.Text = Form1.IniRead(Form1.PATHINI, “MAIL”, “psw”)
-        TextBox3.Text = Form1.IniRead(Form1.PATHINI, “MAIL”, “mailccn”)
-        TextBox4.Text = Form1.IniRead(Form1.PATHINI, “MAIL”, “smtp”)
+        TxtIdAccount.Text = FormMail.IniRead(FormMail.PATHINI, “MAIL”, “mailmitt”)
+        TxtPassword.Text = FormMail.IniRead(FormMail.PATHINI, “MAIL”, “psw”)
+        TxtSmtp.Text = FormMail.IniRead(FormMail.PATHINI, “MAIL”, “mailccn”)
+        TxtCcnMail.Text = FormMail.IniRead(FormMail.PATHINI, “MAIL”, “smtp”)
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        scritturaOk(0) = Form1.IniWrite(Form1.PATHINI, “MAIL”, “mailmitt”, TextBox1.Text)
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TxtIdAccount.TextChanged
+        scritturaOk(0) = FormMail.IniWrite(FormMail.PATHINI, “MAIL”, “mailmitt”, TxtIdAccount.Text)
     End Sub
 
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-        scritturaOk(1) = Form1.IniWrite(Form1.PATHINI, “MAIL”, “psw”, TextBox2.Text)
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TxtPassword.TextChanged
+        scritturaOk(1) = FormMail.IniWrite(FormMail.PATHINI, “MAIL”, “psw”, TxtPassword.Text)
     End Sub
 
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-        scritturaOk(2) = Form1.IniWrite(Form1.PATHINI, “MAIL”, “mailccn”, TextBox3.Text)
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TxtSmtp.TextChanged
+        scritturaOk(2) = FormMail.IniWrite(FormMail.PATHINI, “MAIL”, “mailccn”, TxtSmtp.Text)
     End Sub
 
-    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
-        scritturaOk(3) = Form1.IniWrite(Form1.PATHINI, “MAIL”, “smtp”, TextBox4.Text)
+    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TxtCcnMail.TextChanged
+        scritturaOk(3) = FormMail.IniWrite(FormMail.PATHINI, “MAIL”, “smtp”, TxtCcnMail.Text)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnAnnulDati.Click
         Close()
     End Sub
 End Class

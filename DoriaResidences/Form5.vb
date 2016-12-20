@@ -7,12 +7,12 @@
     Dim testo_caparra As String
     Dim saluto As String
     Dim corpo As String
-    Dim firma As String = vbNewLine & "A. Doria" & vbNewLine & vbNewLine & Form1.INTESTAZIONE_MAIL
+    Dim firma As String = vbNewLine & "A. Doria" & vbNewLine & vbNewLine & FormMail.INTESTAZIONE_MAIL
     Dim oggetto As String
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Form1.IngleseToolStripMenuItem.Checked Then
+        If FormMail.IngleseToolStripMenuItem.Checked Then
             '********************************************************************
             'Modelli mail in inglese
             '********************************************************************
@@ -40,7 +40,7 @@
                 MsgBox("Errore immissione tipologia mail")
                 Exit Sub
             End If
-        ElseIf Form1.ItalianoToolStripMenuItem.Checked
+        ElseIf FormMail.ItalianoToolStripMenuItem.Checked
 
             '********************************************************************
             'Modelli mail in italiano
@@ -71,8 +71,8 @@
             End If
         End If
         corpo = saluto & testo & firma
-        Form1.TextBox3.Text = corpo
-        Form1.TextBox2.Text = oggetto
+        FormMail.TxtTesto.Text = corpo
+        FormMail.TxtOggetto.Text = oggetto
         Me.Close()
     End Sub
 End Class
